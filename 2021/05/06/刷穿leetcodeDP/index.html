@@ -20,17 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="记录碎片">
-<meta property="og:type" content="website">
-<meta property="og:title" content="DL&#39;s Blog">
-<meta property="og:url" content="http://example.com/categories/ACM/index.html">
+  <meta name="description" content="LeetCode的DP（困难）每日一到二更，150天的样子更完。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="刷穿LeetCodeDP">
+<meta property="og:url" content="http://example.com/2021/05/06/%E5%88%B7%E7%A9%BFleetcodeDP/index.html">
 <meta property="og:site_name" content="DL&#39;s Blog">
-<meta property="og:description" content="记录碎片">
+<meta property="og:description" content="LeetCode的DP（困难）每日一到二更，150天的样子更完。">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-05-06T15:29:30.000Z">
+<meta property="article:modified_time" content="2021-05-06T15:48:19.401Z">
 <meta property="article:author" content="Dai Ling">
+<meta property="article:tag" content="DP">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/categories/ACM/">
+<link rel="canonical" href="http://example.com/2021/05/06/%E5%88%B7%E7%A9%BFleetcodeDP/">
 
 
 <script id="page-configurations">
@@ -38,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>分类: ACM | DL's Blog</title>
+  <title>刷穿LeetCodeDP | DL's Blog</title>
   
 
 
@@ -157,91 +160,100 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">ACM
-          <small>分类</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/06/%E5%88%B7%E7%A9%BFleetcodeDP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://z3.ax1x.com/2021/05/06/glJAZd.png">
+      <meta itemprop="name" content="Dai Ling">
+      <meta itemprop="description" content="记录碎片">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DL's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          刷穿LeetCodeDP
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-06 23:29:30 / 修改时间：23:48:19" itemprop="dateCreated datePublished" datetime="2021-05-06T23:29:30+08:00">2021-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
+        <h1 id="LeetCode的DP（困难）"><a href="#LeetCode的DP（困难）" class="headerlink" title="LeetCode的DP（困难）"></a>LeetCode的DP（困难）</h1><p>每日一到二更，150天的样子更完。</p>
+<span id="more"></span>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h2 id="1510-石子游戏-IV"><a href="#1510-石子游戏-IV" class="headerlink" title="1510. 石子游戏 IV"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/stone-game-iv/">1510. 石子游戏 IV</a></h2><blockquote>
+<p>Alice 和 Bob 两个人轮流玩一个游戏，Alice 先手。</p>
+<p>一开始，有 n 个石子堆在一起。每个人轮流操作，正在操作的玩家可以从石子堆里拿走 任意 非零 平方数 个石子。</p>
+<p>如果石子堆里没有石子了，则无法操作的玩家输掉游戏。</p>
+<p>给你正整数 n ，且已知两个人都采取最优策略。如果 Alice 会赢得比赛，那么返回 True ，否则返回 False 。</p>
+</blockquote>
+<p>0个石子是必败态，必胜态由必败态转移而来，所以：<br>$$<br>if(f_{i-j^2}=0):f_i=1<br>$$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">winnerSquareGame</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">bool</span>&gt; <span class="title">f</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j * j &lt;= i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!f[i - j * j])</span><br><span class="line">            &#123;</span><br><span class="line">                f[i] = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[n];</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-05-06T23:29:30+08:00"
-              content="2021-05-06">
-          05-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/06/%E5%88%B7%E7%A9%BFleetcodeDP/" itemprop="url">
-            <span itemprop="name">刷穿LeetCodeDP</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-28T00:01:39+08:00"
-              content="2021-04-28">
-          04-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/28/%E6%95%B0%E8%AE%BA%E7%BB%83%E4%B9%A0/" itemprop="url">
-            <span itemprop="name">数论练习</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-27T23:30:12+08:00"
-              content="2021-04-27">
-          04-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/27/%E6%95%B0%E8%AE%BA%E5%AD%A6%E4%B9%A0/" itemprop="url">
-            <span itemprop="name">数论学习</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DP/" rel="tag"># DP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/06/%E5%B0%8F%E6%B8%B8%E6%88%8F/" rel="prev" title="小游戏">
+      <i class="fa fa-chevron-left"></i> 小游戏
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -294,6 +306,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LeetCode%E7%9A%84DP%EF%BC%88%E5%9B%B0%E9%9A%BE%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">LeetCode的DP（困难）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1510-%E7%9F%B3%E5%AD%90%E6%B8%B8%E6%88%8F-IV"><span class="nav-number">1.1.</span> <span class="nav-text">1510. 石子游戏 IV</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
