@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a>
 
   </li>
   </ul>
@@ -159,6 +159,102 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/10/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://z3.ax1x.com/2021/05/06/glJAZd.png">
+      <meta itemprop="name" content="Dai Ling">
+      <meta itemprop="description" content="记录碎片">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DL's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/10/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" class="post-title-link" itemprop="url">数字电路（时序逻辑）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-10 22:48:34" itemprop="dateCreated datePublished" datetime="2021-05-10T22:48:34+08:00">2021-05-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-11 00:47:17" itemprop="dateModified" datetime="2021-05-11T00:47:17+08:00">2021-05-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">课程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="时序逻辑分析与设计"><a href="#时序逻辑分析与设计" class="headerlink" title="时序逻辑分析与设计"></a>时序逻辑分析与设计</h1><h2 id="同步时序逻辑分析"><a href="#同步时序逻辑分析" class="headerlink" title="同步时序逻辑分析"></a>同步时序逻辑分析</h2><h3 id="小型同步时序逻辑分析"><a href="#小型同步时序逻辑分析" class="headerlink" title="小型同步时序逻辑分析"></a>小型同步时序逻辑分析</h3><ol>
+<li>根据给定的逻辑图，写出时序逻辑输出方程，触发器驱动方程</li>
+<li>将驱动方程带入特性方程</li>
+<li>列出状态分配表</li>
+<li>由状态分配表推出状态表/画出状态图/波形图</li>
+<li>由状态表或状态图说明功能</li>
+</ol>
+<h3 id="中型同步时序逻辑分析"><a href="#中型同步时序逻辑分析" class="headerlink" title="中型同步时序逻辑分析"></a>中型同步时序逻辑分析</h3><p>通过给出的功能表或者功能转换图，穷举所有状态，画状态图，判断功能</p>
+<h2 id="时序逻辑功能转换"><a href="#时序逻辑功能转换" class="headerlink" title="时序逻辑功能转换"></a>时序逻辑功能转换</h2><h3 id="方法一：套状态方程"><a href="#方法一：套状态方程" class="headerlink" title="方法一：套状态方程"></a>方法一：套状态方程</h3><p>例：JK触发器到D触发器</p>
+<p>JK:<br>$$<br>Q^{n+1}=J\overline{Q^n}+\overline{K}Q^n<br>$$<br>D:<br>$$<br>Q^{n+1}=D<br>$$<br>把JK带入D：<br>$$<br>Q^{n+1}=D(\overline{Q^n}+Q^n)=D\overline{Q^n}+\overline{D}Q^n<br>$$<br>所以：<br>$$<br>\begin{cases}<br>j=D\<br>k=\overline{D}<br>\end{cases}<br>$$</p>
+<h3 id="方法二：图表法"><a href="#方法二：图表法" class="headerlink" title="方法二：图表法"></a>方法二：图表法</h3><ol>
+<li>列出待求触发器的特性真值表（先画已经有的，再在这个上面添加要求的）</li>
+<li>根据真值表，针对要求的触发器画卡诺图</li>
+<li>根据卡诺图画驱动方程，然后画逻辑图</li>
+</ol>
+<h2 id="同步时序逻辑的设计"><a href="#同步时序逻辑的设计" class="headerlink" title="同步时序逻辑的设计"></a>同步时序逻辑的设计</h2><h3 id="小型同步时序逻辑设计"><a href="#小型同步时序逻辑设计" class="headerlink" title="小型同步时序逻辑设计"></a>小型同步时序逻辑设计</h3><ol>
+<li>根据需求建立原始的状态图或状态表</li>
+<li>化解</li>
+<li>确定状态变量数量，完成状态分配（将化简的状态用二进制表示）</li>
+<li>选择触发器类型</li>
+<li>确保逻辑可以自启动（所有无效状态有限步数可以到达有效状态）</li>
+<li>画逻辑图</li>
+</ol>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="串行加法器"><a href="#串行加法器" class="headerlink" title="串行加法器"></a>串行加法器</h3><h3 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h3><h2 id="序列信号发生器设计"><a href="#序列信号发生器设计" class="headerlink" title="序列信号发生器设计"></a>序列信号发生器设计</h2><h3 id="使用多路选择器"><a href="#使用多路选择器" class="headerlink" title="使用多路选择器"></a>使用多路选择器</h3><h3 id="使用译码器"><a href="#使用译码器" class="headerlink" title="使用译码器"></a>使用译码器</h3><h3 id="使用其他门的组合逻辑"><a href="#使用其他门的组合逻辑" class="headerlink" title="使用其他门的组合逻辑"></a>使用其他门的组合逻辑</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -194,7 +290,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-10 19:37:34" itemprop="dateModified" datetime="2021-05-10T19:37:34+08:00">2021-05-10</time>
+                <time title="修改时间：2021-05-10 23:51:19" itemprop="dateModified" datetime="2021-05-10T23:51:19+08:00">2021-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -614,7 +710,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -627,7 +723,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
