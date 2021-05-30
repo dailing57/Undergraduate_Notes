@@ -194,7 +194,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-30 21:36:57" itemprop="dateModified" datetime="2021-05-30T21:36:57+08:00">2021-05-30</time>
+                <time title="修改时间：2021-05-30 22:03:37" itemprop="dateModified" datetime="2021-05-30T22:03:37+08:00">2021-05-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,89 +217,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <span id="more"></span>
-
-<h1 id="半导体器件"><a href="#半导体器件" class="headerlink" title="半导体器件"></a>半导体器件</h1><h2 id="半导体特性"><a href="#半导体特性" class="headerlink" title="半导体特性"></a>半导体特性</h2><ol>
-<li>热敏性</li>
-<li>光敏性</li>
-<li>掺杂性</li>
-</ol>
-<h2 id="半导体分类"><a href="#半导体分类" class="headerlink" title="半导体分类"></a>半导体分类</h2><h3 id="本征半导体"><a href="#本征半导体" class="headerlink" title="本征半导体"></a>本征半导体</h3><p>纯净的、单晶体形式存在的半导体</p>
-<p>环境温度或者光照强度加强使其<strong>本征激发/热激发</strong>，价电子摆脱束缚。</p>
-<h3 id="杂质半导体"><a href="#杂质半导体" class="headerlink" title="杂质半导体"></a>杂质半导体</h3><h4 id="N型半导体"><a href="#N型半导体" class="headerlink" title="N型半导体"></a>N型半导体</h4><p>参入5价元素，自由电子为多子。</p>
-<h4 id="P型半导体"><a href="#P型半导体" class="headerlink" title="P型半导体"></a>P型半导体</h4><p>参入3价元素，空穴是多子。</p>
-<h3 id="PN结单向导电性"><a href="#PN结单向导电性" class="headerlink" title="PN结单向导电性"></a>PN结单向导电性</h3><p>PN结加正向电压，外电场方向削弱内电场作用，使得漂移和扩散运动平衡破坏，扩散加强</p>
-<p>PN结加反向电压，外电场方向增强内电场作用，使得漂移和扩散运动平衡破坏，飘移加强</p>
-<h3 id="二极管应用"><a href="#二极管应用" class="headerlink" title="*二极管应用"></a>*二极管应用</h3><ol>
-<li>断开二极管，比较两端电位</li>
-<li>如果电压大于0.6（有导通电压的话），将其等效为直流电压源</li>
-</ol>
-<p>例子见P188</p>
-<h3 id="稳压二极管"><a href="#稳压二极管" class="headerlink" title="稳压二极管"></a>稳压二极管</h3><p>动态电阻越小，曲线越陡，稳压性能越好。<br>$$<br>r_z=\frac {\Delta U_z}{\Delta I_z}<br>$$<br><del>就是电流怎么遍电压还是那个值</del></p>
-<p>带稳压二极管的电路分析：</p>
-<ol>
-<li>假设处于稳压态</li>
-<li>计算反向电流$I$<ul>
-<li>$I_{ZM} \lt I$ 击穿</li>
-<li>$I_Z \lt I \lt I_{ZM}$ 正常</li>
-<li>$I \lt I_{Z}$ 截止</li>
-</ul>
-</li>
-</ol>
-<p>P191</p>
-<h1 id="分立元件放大电路"><a href="#分立元件放大电路" class="headerlink" title="分立元件放大电路"></a>分立元件放大电路</h1><h2 id="基本放大电路"><a href="#基本放大电路" class="headerlink" title="基本放大电路"></a>基本放大电路</h2><p>$$<br>r_{be}=r_{bb’}+(1+\beta )\frac {26} {I_E}<br>$$</p>
-<table>
-<thead>
-<tr>
-<th align="center">类型</th>
-<th align="center">频率</th>
-<th align="center">放大</th>
-<th align="center">$r_i$</th>
-<th align="center">$r_o$</th>
-<th align="center">频带</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">共射</td>
-<td align="center">低</td>
-<td align="center">电流，电压</td>
-<td align="center">中</td>
-<td align="center">大</td>
-<td align="center">窄</td>
-</tr>
-<tr>
-<td align="center">共集</td>
-<td align="center">高</td>
-<td align="center">电流</td>
-<td align="center">大</td>
-<td align="center">小</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">共基</td>
-<td align="center">高</td>
-<td align="center">电压</td>
-<td align="center">小</td>
-<td align="center">大</td>
-<td align="center">宽</td>
-</tr>
-</tbody></table>
-<h2 id="差动放大"><a href="#差动放大" class="headerlink" title="差动放大"></a>差动放大</h2><h3 id="零点漂移"><a href="#零点漂移" class="headerlink" title="零点漂移"></a>零点漂移</h3><p>首温度的影响，输出电压不是恒定的直流。第一级三极管的影响最严重（因为会被之后的放大）</p>
-<h3 id="电路"><a href="#电路" class="headerlink" title="电路"></a>电路</h3><p>抑制零漂和共模信号，输出信号是每管集电极电位变化的两倍。放大倍数等于单管放大倍数。</p>
-<h3 id="比较输入"><a href="#比较输入" class="headerlink" title="比较输入"></a>比较输入</h3><p>输入信号不是差模信号也不是共模信号（就是大小，相位不一样）</p>
-<p>把信号拆分成共模和差模（妙啊！）<br>$$<br>u_{i1}=\frac {u_{i1}+u_{i2}} 2 +\frac {u_{i1}-u_{i2}} 2<br>$$</p>
-<p>$$<br>u_{i1}=\frac {u_{i1}+u_{i2}} 2 +(-\frac {u_{i1}-u_{i2}} 2)<br>$$</p>
-<p>$$<br>\therefore u_{ic}=\frac {u_{i1}+u_{i2}} 2<br>$$</p>
-<p>$$<br>\therefore u_{id}=u_{i1}-u_{i2}<br>$$</p>
-<p>$$<br>u_{o}=A_cu_{ic}+A_du_{id}=A_c\frac {u_{i1}+u_{i2}} 2 +A_d({u_{i1}-u_{i2}})<br>$$</p>
-<h3 id="共模抑制比-K-CMRR"><a href="#共模抑制比-K-CMRR" class="headerlink" title="共模抑制比$K_{CMRR}$"></a>共模抑制比$K_{CMRR}$</h3><p>衡量一个差动放大电路是否可以有效的放大<br>$$<br>K_{CMRR}=\vert \frac {A_d} {A_c} \vert<br>$$<br>Ac是一个接近0的值，上面这个东西太大了，用分贝来表示：<br>$$<br>K_{CMR}=20lg\vert \frac {A_d} {A_c} \vert<br>$$</p>
-<h3 id="长尾电路"><a href="#长尾电路" class="headerlink" title="长尾电路"></a>长尾电路</h3><p>由于两半边电路完全一样很恼火，所以加一个$R_E$和$R_W$进行静态调零（一般的放大电路也用这个办法来稳定信号虽然没加$R_W$），$R_E$对差模信号来说是一根导线，因为电流相反；对共模信号来说，会大大减小其放大倍数。</p>
-<h2 id="功率放大"><a href="#功率放大" class="headerlink" title="功率放大"></a>功率放大</h2><p>多级放大电路的末级或者末级前一级一般是功率放大电路。小信号放大电路的主要任务是放大电压，功放是为了更大的输出功率。</p>
-<h3 id="工作状态"><a href="#工作状态" class="headerlink" title="工作状态"></a>工作状态</h3><p>甲类：效率不高，低于50%，无论有无信号输入，电源都要提供$P_E=U_{CC}I_C$信号越大，有用功率越大。提高效率，可以增加放大电路的动态范围；减小电源提供的功率（将静态工作点下移）。</p>
-<p>甲乙类，乙类：就是下移静态工作点。虽然效率更高了，但是有严重的非线性失真。可以用<strong>无 输出变压器 乙类互补功率放大电路</strong>（OTL）和**无 输出电容 乙类互补功率放大电路 **（OCL）</p>
-<h3 id="OTL"><a href="#OTL" class="headerlink" title="OTL"></a>OTL</h3><p>就是带电容的的对称互补功放电路，有交越失真</p>
-<h3 id="OCL"><a href="#OCL" class="headerlink" title="OCL"></a>OCL</h3><p><img src="https://wkretype.bdimg.com/retype/zoom/942b31df2cc58bd63186bd59?pn=10&o=jpg_6&md5sum=dff142dadec9c6b3785c9c42b3abfb29&sign=aa1e3de2e2&png=176944-183156&jpg=1057606-1188610" alt="img"></p>
-
+          <h1 id="半导体器件"><a href="#半导体器件" class="headerlink" title="半导体器件"></a>半导体器件</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/29/%E6%A8%A1%E7%94%B5%E5%A4%8D%E4%B9%A0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
