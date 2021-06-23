@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="概述网络概述">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计网复习">
+<meta property="og:url" content="http://example.com/2021/06/18/%E8%AE%A1%E7%BD%91%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="DL&#39;s Blog">
+<meta property="og:description" content="概述网络概述">
+<meta property="og:locale">
+<meta property="og:image" content="https://z3.ax1x.com/2021/06/23/RmWi8S.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/06/23/RnWYTI.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/06/23/RnTGgx.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/06/23/Rn7KQP.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/06/23/Rn7dyV.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/06/23/RnxPy9.png">
+<meta property="article:published_time" content="2021-06-18T12:04:47.000Z">
+<meta property="article:modified_time" content="2021-06-23T09:56:16.464Z">
+<meta property="article:author" content="Dai Ling">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/06/23/RmWi8S.png">
+
+<link rel="canonical" href="http://example.com/2021/06/18/%E8%AE%A1%E7%BD%91%E5%A4%8D%E4%B9%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>计网复习 | DL's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">DL's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Welcome to DL's Blog!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">9</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/18/%E8%AE%A1%E7%BD%91%E5%A4%8D%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://z3.ax1x.com/2021/05/06/glJAZd.png">
+      <meta itemprop="name" content="Dai Ling">
+      <meta itemprop="description" content="记录碎片">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DL's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计网复习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-18 20:04:47" itemprop="dateCreated datePublished" datetime="2021-06-18T20:04:47+08:00">2021-06-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-23 17:56:16" itemprop="dateModified" datetime="2021-06-23T17:56:16+08:00">2021-06-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">课程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="网络概述"><a href="#网络概述" class="headerlink" title="网络概述"></a>网络概述</h2><span id="more"></span>
+
+<p>网络：节点和链路（Node and Link）</p>
+<p>互联网：多个网络互联起来</p>
+<p>Internet：全球最大的，开放的采用TCP/IP协议的网络</p>
+<p>ISP: Internet Service Provider（电信、移动、联通……）ISP继续分层。</p>
+<p>RFC(request for comments)：一小部分为因特网标准。</p>
+<h2 id="三种交换"><a href="#三种交换" class="headerlink" title="三种交换"></a>三种交换</h2><h3 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h3><p>建立链接</p>
+<p>通话</p>
+<p>释放链接</p>
+<p>效率太低，不适用计算机交换</p>
+<h3 id="分组交换（报文交换升级）"><a href="#分组交换（报文交换升级）" class="headerlink" title="分组交换（报文交换升级）"></a>分组交换（报文交换升级）</h3><p>分组之后添加首部</p>
+<p>可以随时发送，不需要先建立链接</p>
+<h2 id="计算机网络定义"><a href="#计算机网络定义" class="headerlink" title="计算机网络定义"></a>计算机网络定义</h2><p>自治系统及其链接（见作业）</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>技术，使用者，传输介质，拓扑结构，覆盖范围</p>
+<h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><p>速率</p>
+<h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><p>从某一点到另一点，所能通过的最高数据率（出口带宽）单位也是b/s</p>
+<h3 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h3><p>单位时间通过某个网络的数据量</p>
+<h3 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h3><h4 id="发送时延"><a href="#发送时延" class="headerlink" title="发送时延"></a>发送时延</h4><p>分组长度/发送速率</p>
+<h4 id="传播时延"><a href="#传播时延" class="headerlink" title="传播时延"></a>传播时延</h4><p>信道长度/电磁波传播速率</p>
+<h4 id="处理时延"><a href="#处理时延" class="headerlink" title="处理时延"></a>处理时延</h4><h3 id="时延带宽积（以比特为单位的链路长度）"><a href="#时延带宽积（以比特为单位的链路长度）" class="headerlink" title="时延带宽积（以比特为单位的链路长度）"></a>时延带宽积（以比特为单位的链路长度）</h3><p>传播时延$\times$带宽</p>
+<h3 id="往返时间RTT"><a href="#往返时间RTT" class="headerlink" title="往返时间RTT"></a>往返时间RTT</h3><h3 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h3><p>信道利用率：有百分之几的时间是被利用的（一般不超过50%）</p>
+<p>网络利用率：全网络利用率的加权平均</p>
+<h3 id="丢包率"><a href="#丢包率" class="headerlink" title="丢包率"></a>丢包率</h3><p>分组误码，网络拥塞</p>
+<h2 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="*计算机网络体系结构"></a>*计算机网络体系结构</h2><p>OSI：物理，链路，网络，运输，会话，表示，应用；我们学习把会话，表示省掉</p>
+<p>TCP/IP：接口层，网际层，运输层，应用层</p>
+<p>说穿了，只有网际层（IP)，运输层(TCP,UDP)，应用层(HTTP,STMP;DNS,RTP)</p>
+<h3 id="分层的原因"><a href="#分层的原因" class="headerlink" title="分层的原因"></a>分层的原因</h3><p>把大问题划分为小问题</p>
+<h3 id="各层次作用"><a href="#各层次作用" class="headerlink" title="各层次作用"></a>各层次作用</h3><h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p>传输媒介，物理接口，信号表示</p>
+<h4 id="链路层"><a href="#链路层" class="headerlink" title="链路层"></a>链路层</h4><p>标识主机（MAC地址），区分出地址和数据，协调主机争用主机</p>
+<h4 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h4><p>IP，前三个数字标识网络</p>
+<p>路由选择</p>
+<h4 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h4><p>进程之间的通信问题</p>
+<p>处理传错的问题</p>
+<h4 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h4><p>特定的网络应用</p>
+<p>我的理解：首先确定怎么交流，手语？口语？01？（物理层）；然后是一个村里面交流（链路层）；因为跨村交流（网络层）；万一信息再传的过程中搞错了怎么办？（运输层）；最后对应某一件具体的事采用啥规矩去办（应用层）</p>
+<h2 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h2><p>实体：硬件或软件进程</p>
+<p>对等实体：层次相同的实体</p>
+<p>协议：控制两个对等实体的通信规则集合</p>
+<p>协议三要素：</p>
+<p>语法：信息格式</p>
+<p>语义：双方要完成的操作</p>
+<p>同步：时序关系</p>
+<p>服务：本层可以对上一层提供服务</p>
+<p>服务访问点：相邻两层实体交换信息的逻辑接口，用于区分服务类型。</p>
+<p>数据链路层：类型</p>
+<p>网络层：协议字段</p>
+<p>运输层：端口号</p>
+<p>协议数据单元PDU：对等层次之间传送的数据包</p>
+<p>物理层：比特流</p>
+<p>链路层：帧</p>
+<p>网络层：分组</p>
+<p>运输层：TCP报文段（segment）/UDP用户数据报（datagram）</p>
+<p>应用层：报文（message）</p>
+<p>服务数据单元SDU：同一系统中，层与层之间的数据包</p>
+<h1 id="物理层-1"><a href="#物理层-1" class="headerlink" title="物理层"></a>物理层</h1><p>奈氏：$2W \ baut = 2W \ 码元/s= 2Wlog_2(X)$</p>
+<p>香农公式：$c=Wlog_2(1+\frac SN)$</p>
+<h1 id="链路层-1"><a href="#链路层-1" class="headerlink" title="链路层"></a>链路层</h1><p>链路：节点到节点的物理线路</p>
+<p>数据链路：把实现的通信协议的硬件和软件加到链路上</p>
+<p>链路层以帧传输</p>
+<p>主要是三个问题：封装成帧，差错检测，可靠传输</p>
+<p>以太网媒体接入控制采用：CSMA/CD</p>
+<p>802.11局域网媒体接入控制协议：CSMA/CA</p>
+<h2 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h2><p>在上层交付的PDU添加帧头和帧尾，帧头和帧尾包含控制信息，帧定界就是它们的作用之一。</p>
+<p>透明数据传输：对上层的数据没有限制。</p>
+<p>高级数据链路控制协议：HDLC用帧头和帧尾的标志字段作为帧定界符，其值为01111110；HDLC为了实现透明传输，在连续5个1后面插入0。</p>
+<p>MTU：帧的数据部分长度上限。</p>
+<h2 id="差错检测"><a href="#差错检测" class="headerlink" title="差错检测"></a>差错检测</h2><h3 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h3><p>在数据后面添加以为奇偶校验位，1为奇</p>
+<h3 id="循环冗余检测CRC"><a href="#循环冗余检测CRC" class="headerlink" title="循环冗余检测CRC"></a>循环冗余检测CRC</h3><p>约定好一个生成多项式</p>
+<p>发送方基于待发送的数据和生成多项式计算出差错检测码（冗余码），将其添加到待传输数据的后面一起传输。</p>
+<p>接收方通过生成多项式来计算数据是否产生误码。</p>
+<h2 id="可靠传输"><a href="#可靠传输" class="headerlink" title="可靠传输"></a>可靠传输</h2><p>比特差错（链路），分组丢失、失序、重复</p>
+<h3 id="停止-等待协议SW"><a href="#停止-等待协议SW" class="headerlink" title="停止-等待协议SW"></a>停止-等待协议SW</h3><p>DATA丢失，<strong>设置超时重传</strong></p>
+<p>ACK丢失导致重复，<strong>DATA添加序号</strong></p>
+<p>ACK迟到，重发DATA，再发一次ACK导致发送方不知道是哪个ACK，<strong>ACK添加序号</strong></p>
+<p>信道利用率：$U=\frac {T_D}{T_D+RTT+T_A} \approx \frac {T_D}{T_D+RTT}$</p>
+<h3 id="GBN"><a href="#GBN" class="headerlink" title="GBN"></a>GBN</h3><p>发送方：</p>
+<p>发送窗口尺寸:$1 \lt W_T \le 2^n-1 $，n是构成分组序号的比特数。</p>
+<p>等于1退化为SW，大于$2^n-1$接收方无法分辨新旧数据</p>
+<p>接收方：</p>
+<p>接收窗口为1</p>
+<h3 id="SR"><a href="#SR" class="headerlink" title="SR"></a>SR</h3><p>接收方窗口大于1，小于等于发送窗口，如果大于，接收方无法分辨新旧数据。</p>
+<p>接收方每次都会发一个确认帧</p>
+<h2 id="PPP"><a href="#PPP" class="headerlink" title="PPP"></a>PPP</h2><p>为点对点传输提供一个标准方法。</p>
+<p>对各协议数据报封装成帧</p>
+<p>链路控制协议LCP</p>
+<p>一套网络控制协议NCPs</p>
+<p>透明传输：异步传输采用字节填充法，同步传输采用比特填充法</p>
+<h2 id="媒体接入控制"><a href="#媒体接入控制" class="headerlink" title="媒体接入控制"></a>媒体接入控制</h2><h3 id="静态划分"><a href="#静态划分" class="headerlink" title="静态划分"></a>静态划分</h3><p>信道复用：</p>
+<p>复用：通过一条物理线路，同时传输多路用户信号</p>
+<p>当网络传输容量大于多条单一信道传输的总通信量时，可利用复用技术再一条物理线路上建立多条通信信道来充分利用传输媒体带宽。</p>
+<h4 id="频分FDM"><a href="#频分FDM" class="headerlink" title="频分FDM"></a>频分FDM</h4><p>所用用户占用不同的频带资源</p>
+<h4 id="时分TDM"><a href="#时分TDM" class="headerlink" title="时分TDM"></a>时分TDM</h4><p>所用用户在不同的时间占用同样的频带宽度</p>
+<h4 id="波分WDM"><a href="#波分WDM" class="headerlink" title="波分WDM"></a>波分WDM</h4><p>就是光的FDM</p>
+<h4 id="码分CDM-CDMA"><a href="#码分CDM-CDMA" class="headerlink" title="码分CDM(CDMA)"></a>码分CDM(CDMA)</h4><p>Code Division Multiple Access</p>
+<p>每一个比特时间再划分为m个短的间隔，成为码片，通常m取64或128</p>
+<p>用CDMA的每一个站指派一个唯一的m bit码片序列</p>
+<p>发比特1，就发自己的那个码片序列，发比特0，就发自己码片序列的反码</p>
+<p>码片序列挑选原则：</p>
+<p>不同，相互正交</p>
+<h3 id="动态接入"><a href="#动态接入" class="headerlink" title="动态接入"></a>动态接入</h3><h4 id="CSMA-CD"><a href="#CSMA-CD" class="headerlink" title="CSMA/CD"></a>CSMA/CD</h4><p>Carrier Sense Multiple Access/Collision Detection</p>
+<p>载波监听多址接入/碰撞检测</p>
+<p>多址接入MA：多个站链接在一条总线上</p>
+<p>载波监听CS：每个站发送帧之前要先检测一下总线上是否有其他站点在发送帧（先听后说）</p>
+<p>如果检测到总线空闲96比特时间就发送这个帧</p>
+<p>碰撞检测CD：边说边听</p>
+<p>最小帧长为64字节</p>
+<h4 id="CSMA-CA"><a href="#CSMA-CA" class="headerlink" title="CSMA/CA"></a>CSMA/CA</h4><p>Carrier Sense Multiple Access/Collision Avoidance</p>
+<p>802.11无线局域网使用CSMA/CA协议,再CSMA上增加一个碰撞避免CA</p>
+<p>由于不可能避免避免所有碰撞，使用数据链路层确认机制（SW）保证数据被正确接收</p>
+<p>媒体接入控制方式：</p>
+<p>DCF：分布式协调功能Distributed Coordinateion Function。 在DCF下，没有中心控制站点，每个站点使用CSMA/CA争用信道来获取发送权。</p>
+<p>PCF：点协调功能</p>
+<p>IFS：帧间间隔InterFrame Space，所有的的站点必须在持续检测到信道空闲一段指定时间后才能发送帧</p>
+<p>高优先级帧等待时间更短</p>
+<p>SIFS：最短帧间间隔28$\mu s$</p>
+<p>DIFS：DCF帧间间隔128$\mu s$，在DCF方式中发送数据帧和管理帧</p>
+<p>允许信道预约：RTS请求发送，CTS允许发送</p>
+<h2 id="MAC-IP-ARP"><a href="#MAC-IP-ARP" class="headerlink" title="MAC,IP,ARP"></a>MAC,IP,ARP</h2><h3 id="MAC"><a href="#MAC" class="headerlink" title="MAC"></a>MAC</h3><p>Mediea Access Control</p>
+<p>IP地址时TCP/IP体系结构的网际层所使用的地址，ARP协议属于TCP/IP体系结构的网际层，作用是将已知设备所分配的IP，获取设备的MAC</p>
+<p>MAC地址是对各个接口的唯一标识</p>
+<p>多播MAC地址，第二个16进制数是奇数。</p>
+<h3 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h3><p>网络编号，主机编号</p>
+<h3 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h3><p>ARP高速缓存表，ARP请求报文（广播），响应报文为单播帧</p>
+<p>ARP只能在一段链路上使用</p>
+<h2 id="集线器与交换机"><a href="#集线器与交换机" class="headerlink" title="集线器与交换机"></a>集线器与交换机</h2><p>集线器只工作在物理层，只是简单的转发，不进行碰撞检测，使用集线器的星型网络实际上可以看作是总线网。</p>
+<p>交换机工作在全双工方式；有并行性，可以同时多对接口连通，没有碰撞；只工作在链路层，收到帧以后，在帧交换表查找，帧的目的MAC地址和对应的接口号。</p>
+<h3 id="STP"><a href="#STP" class="headerlink" title="STP"></a>STP</h3><p>生成树协议STP，为了避免震荡、网络风暴等问题</p>
+<h3 id="VLAN"><a href="#VLAN" class="headerlink" title="VLAN"></a>VLAN</h3><p>交换机接口分为Trunk和Access</p>
+<h1 id="网络层-1"><a href="#网络层-1" class="headerlink" title="网络层"></a>网络层</h1><p>实现网络互联。</p>
+<p>主要问题：可靠传输、寻址、路由选择</p>
+<h2 id="提供两种服务"><a href="#提供两种服务" class="headerlink" title="提供两种服务"></a>提供两种服务</h2><h3 id="面向链接的虚电路服务"><a href="#面向链接的虚电路服务" class="headerlink" title="面向链接的虚电路服务"></a>面向链接的虚电路服务</h3><p>建立网络层链接：VC虚电路Virtual Circuit</p>
+<h3 id="无连接数据报服务"><a href="#无连接数据报服务" class="headerlink" title="无连接数据报服务"></a>无连接数据报服务</h3><p>可靠通信由用户主机保证</p>
+<p>不需要建立网络层链接</p>
+<p>每个分组可以走不同的路径</p>
+<p>每个分组首部必须携带主机的完整地址</p>
+<h2 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h2><h3 id="分类编址"><a href="#分类编址" class="headerlink" title="分类编址"></a>分类编址</h3><p>A：0开头，8位</p>
+<p>B：10开头，16位</p>
+<p>C：110开头，24位</p>
+<p>D：1110开头，多播地址；E：1111开头</p>
+<p>ABC才可以分配给主机、路由器接口</p>
+<p>最小的本地环回测试地址：127.0.0.1</p>
+<h3 id="划分子网"><a href="#划分子网" class="headerlink" title="划分子网"></a>划分子网</h3><p>引入掩码</p>
+<h3 id="无分类编址"><a href="#无分类编址" class="headerlink" title="无分类编址"></a>无分类编址</h3><p>无分类路由选择CIDR，Classless Inter-Domain Routing</p>
+<p>/20：前20个比特拿来当网络号</p>
+<p>路由聚合（超网）：</p>
+<p>找共同前缀</p>
+<h2 id="路由选择协议"><a href="#路由选择协议" class="headerlink" title="路由选择协议"></a>路由选择协议</h2><h3 id="RIP"><a href="#RIP" class="headerlink" title="RIP"></a>RIP</h3><p>距离直连为1，好路由是通过路由器最少的路。</p>
+<p>只和相邻路由器交换信息</p>
+<p>刚开始工作，只知道自己到直连网络的距离为1</p>
+<p>每个路由器和相邻路由器交换信息</p>
+<p>每个路由器都知道到本AS内各个网络的最短距离和下一跳地址，称为收敛</p>
+<h3 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h3><p>每个路由器都会产生链路状态通告LSA，Link State Advertisement，LSA中包含以下内容：</p>
+<p>直连网络链路状态信息</p>
+<p>邻居路由器链路状态信息</p>
+<p>LSA被封装在链路状态更新分组LSU中，采用洪泛法发送</p>
+<p>使用OSPF的路由器都有一个链路状态数据库LSDB，用于存储LSA</p>
+<p>比如有R1,R2两个路由器：</p>
+<p>周期性发送问候分组</p>
+<p>数据库描述分组</p>
+<p>如果R1发现缺少某些链路状态，R1发送链路状态请求分组</p>
+<p>R2收到请求，发链路状态更新分组给R1</p>
+<p>R1再发链路状态确认分组</p>
+<p>每30分钟，或者发生变化的时候，发送链路状态更新分组</p>
+<p>OSPF在多点接入网络中的路由器邻居关系：</p>
+<p>选举指定路由器DR，Designated router和BDR，Backup Designated router</p>
+<p>所有的非DR/BDR之和DR/BDR建立邻居关系</p>
+<p>OSPF将AS分为更小的范围</p>
+<h3 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h3><p>在配置BGP时，每个自治系统的管理员要选择至少一个路由器作为“BGP发言人”</p>
+<p>BGP发言人要交换路由信息，必须建立TCP连接，端口号为179</p>
+<p>在TCP交换BGP报文建立BGP会话</p>
+<p>BGP发言人除了运行BGP外，还必须运行自己所在自治系统所使用的内部网关协议，比如RIP,OSPF</p>
+<h3 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h3><p>为了更有效的转发IP数据报，使用网际控制报文协议</p>
+<h4 id="差错报告"><a href="#差错报告" class="headerlink" title="差错报告"></a>差错报告</h4><p>终点不可达：路由器或主机不能交付数据报的时候，就向源点交付终点不可达报文。</p>
+<p>源点抑制：路由器或者主机由于拥塞而丢弃数据，向源点发送抑制报文，使源点放慢发送速率</p>
+<p>时间超过：TTL=0，当终点在预先规定的时间内不能收到一个数据报的全部数据片时，把已知收到的数据报片都丢弃，并发送时间超过报文</p>
+<p>参数问题：检验和有问题，出现误码，丢弃，并发送参数问题</p>
+<p>改变路由：发现还有更好的路</p>
+<p>ICMP差错报告报文不再发送ICMP差错报告报文</p>
+<p>对第一个分片的数据报片的所有后续数据报片都不发送ICMP差错报告报文</p>
+<p>多播地址、特殊地址不发送</p>
+<h4 id="询问报文"><a href="#询问报文" class="headerlink" title="询问报文"></a>询问报文</h4><p>回送请求和回答：</p>
+<p>ICMP回送请求报文时由主机或路由器向一个特定的目的主机发出的询问</p>
+<p>用来测试目的站是否可达</p>
+<p>时间戳请求和：</p>
+<p>进行始终同步和测量时间</p>
+<h4 id="分组网间探测PING"><a href="#分组网间探测PING" class="headerlink" title="分组网间探测PING"></a>分组网间探测PING</h4><p>用来测试主机或路由器间的连通性</p>
+<p>直接使用网际层的ICMP</p>
+<p>使用ICMP回送请求和回答报文</p>
+<h4 id="跟踪路由"><a href="#跟踪路由" class="headerlink" title="跟踪路由"></a>跟踪路由</h4><p>测试源主机到目的主机要经过哪些路由</p>
+<h2 id="VPN"><a href="#VPN" class="headerlink" title="VPN"></a>VPN</h2><p>虚拟专用网，Virtual Private Network</p>
+<p>利用公用的因特网作为本机构各专用网之间的通信载体，就是虚拟的专用网</p>
+<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p>就是路由器拿一个全球IP来和私有IP转换</p>
+<h1 id="运输层-1"><a href="#运输层-1" class="headerlink" title="运输层"></a>运输层</h1><p>底下实现了主机到主机的通信</p>
+<p>实际上是需要进程到进程，运输层实现这个</p>
+<h2 id="端口号、复用于分用"><a href="#端口号、复用于分用" class="headerlink" title="端口号、复用于分用"></a>端口号、复用于分用</h2><p>TCP/IP体系使用端口号使用16比特，0~65535</p>
+<p>熟知的端口号：0~1023，</p>
+<p>FTP:21/20,</p>
+<p>HTTP:80,</p>
+<p>DNS:53</p>
+<p>1024~49151：为没有熟知端口号的应用程序使用</p>
+<p>49152~65535：留给客户进程选择暂时使用</p>
+<p>进程</p>
+<p>TCP/IP体系应用层常用协议所使用的运输层熟知端口号</p>
+<p>UDP</p>
+<p>RIP:520</p>
+<p>DNS:53</p>
+<p>TFTP:69</p>
+<p>DHCP:67/68</p>
+<p>TCP</p>
+<p>SMTP:25</p>
+<p>FTP:21/20</p>
+<p>BGP:179</p>
+<p>HTTP:80</p>
+<p>HTTPS:443</p>
+<h2 id="UDP-TCP"><a href="#UDP-TCP" class="headerlink" title="UDP TCP"></a>UDP TCP</h2><p>UDP无连接，TCP有链接</p>
+<p>TCP只可以单播</p>
+<p>UDP面向应用报文</p>
+<p>TCP面向字节流</p>
+<p>UDP的误码，丢失等问题，直接丢掉</p>
+<h2 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h2><p>就是让别人别发太快了，TCP接收方利用自己的接收窗口大小，来限制发送方发送窗口的大小，TCP发送方收到接收方的0窗口通知之后，启动持续计时器。持续计时器超时后，向接收方发送0窗口探测报文</p>
+<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h2><p>拥塞窗口cwnd维护原则：只要网络没有出现拥塞，就一直增大，出现了拥塞就减小</p>
+<p>判断拥塞的依据：没有按时收到确认报文</p>
+<p>发送方将拥塞窗口作为发送窗口swnd=cwnd</p>
+<p>慢开始门限ssthresh</p>
+<p>cwnd&lt;ssthresh，使用慢开始算法；</p>
+<p>cwnd&gt;ssthresh，使用拥塞避免算法；</p>
+<p>cwnd=ssthresh，两种算法都可以</p>
+<p>慢开始，拥塞避免，快重传，快恢复</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/RmWi8S"><img src="https://z3.ax1x.com/2021/06/23/RmWi8S.png" alt="RmWi8S.png"></a></p>
+<h2 id="TCP超时重传时间的选择"><a href="#TCP超时重传时间的选择" class="headerlink" title="TCP超时重传时间的选择"></a>TCP超时重传时间的选择</h2><p>不可直接使用某次测量得到的RTT样本来计算超时重传时间RTO</p>
+<p>利用每次测量得到的RTT样本，计算加权平均往返时间RTTs</p>
+<p>新的$new\ RTTs=(1-\alpha)\times old\ RTTs+\alpha \times new\  RTT\ sample \ (\alpha=0.125)$</p>
+<p>RTT偏差的加权平均RTTD：$RTT_{D1}=RTT_1 \div 2 $</p>
+<p>新的RTTD：$RTT_{D} = (1-\beta) \times oldRTT_D+\beta\times|RTT_S-newRTT\ sample|\ (\beta=0.25)$</p>
+<p>超时重传时间：$RTO=RTT_S+4 \times RTT_D$</p>
+<p>每重传一次，RTO翻倍</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/RnWYTI"><img src="https://z3.ax1x.com/2021/06/23/RnWYTI.png" alt="RnWYTI.png"></a></p>
+<h2 id="TCP可靠传输"><a href="#TCP可靠传输" class="headerlink" title="TCP可靠传输"></a>TCP可靠传输</h2><p>以字节为单位的滑动窗口实现可靠传输</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/RnTGgx"><img src="https://z3.ax1x.com/2021/06/23/RnTGgx.png" alt="RnTGgx.png"></a></p>
+<h2 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h2><h3 id="三次挥手"><a href="#三次挥手" class="headerlink" title="三次挥手"></a>三次挥手</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/Rn7KQP"><img src="https://z3.ax1x.com/2021/06/23/Rn7KQP.png" alt="Rn7KQP.png"></a></p>
+<p>三次是必须的</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/Rn7dyV"><img src="https://z3.ax1x.com/2021/06/23/Rn7dyV.png" alt="Rn7dyV.png"></a></p>
+<h2 id="TCP连接释放"><a href="#TCP连接释放" class="headerlink" title="TCP连接释放"></a>TCP连接释放</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/RnxPy9"><img src="https://z3.ax1x.com/2021/06/23/RnxPy9.png" alt="RnxPy9.png"></a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag"># 网络</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/29/%E6%A8%A1%E7%94%B5%E5%A4%8D%E4%B9%A0/" rel="prev" title="模电复习">
+      <i class="fa fa-chevron-left"></i> 模电复习
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">网络概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.2.</span> <span class="nav-text">三种交换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.2.1.</span> <span class="nav-text">电路交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2%EF%BC%88%E6%8A%A5%E6%96%87%E4%BA%A4%E6%8D%A2%E5%8D%87%E7%BA%A7%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">分组交换（报文交换升级）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9A%E4%B9%89"><span class="nav-number">1.3.</span> <span class="nav-text">计算机网络定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.4.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.5.</span> <span class="nav-text">性能指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E5%AE%BD"><span class="nav-number">1.5.1.</span> <span class="nav-text">带宽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%9E%E5%90%90%E9%87%8F"><span class="nav-number">1.5.2.</span> <span class="nav-text">吞吐量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E5%BB%B6"><span class="nav-number">1.5.3.</span> <span class="nav-text">时延</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E6%97%B6%E5%BB%B6"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">发送时延</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%A0%E6%92%AD%E6%97%B6%E5%BB%B6"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">传播时延</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%97%B6%E5%BB%B6"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">处理时延</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF%EF%BC%88%E4%BB%A5%E6%AF%94%E7%89%B9%E4%B8%BA%E5%8D%95%E4%BD%8D%E7%9A%84%E9%93%BE%E8%B7%AF%E9%95%BF%E5%BA%A6%EF%BC%89"><span class="nav-number">1.5.4.</span> <span class="nav-text">时延带宽积（以比特为单位的链路长度）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%80%E8%BF%94%E6%97%B6%E9%97%B4RTT"><span class="nav-number">1.5.5.</span> <span class="nav-text">往返时间RTT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-number">1.5.6.</span> <span class="nav-text">利用率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A2%E5%8C%85%E7%8E%87"><span class="nav-number">1.5.7.</span> <span class="nav-text">丢包率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.6.</span> <span class="nav-text">*计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B1%82%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.6.1.</span> <span class="nav-text">分层的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E5%B1%82%E6%AC%A1%E4%BD%9C%E7%94%A8"><span class="nav-number">1.6.2.</span> <span class="nav-text">各层次作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">物理层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">链路层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-number">1.6.2.3.</span> <span class="nav-text">网络层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%BE%93%E5%B1%82"><span class="nav-number">1.6.2.4.</span> <span class="nav-text">运输层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-number">1.6.2.5.</span> <span class="nav-text">应用层</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="nav-number">1.7.</span> <span class="nav-text">相关术语</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%B1%82-1"><span class="nav-number">2.</span> <span class="nav-text">物理层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82-1"><span class="nav-number">3.</span> <span class="nav-text">链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E6%88%90%E5%B8%A7"><span class="nav-number">3.1.</span> <span class="nav-text">封装成帧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B"><span class="nav-number">3.2.</span> <span class="nav-text">差错检测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C"><span class="nav-number">3.2.1.</span> <span class="nav-text">奇偶校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A3%80%E6%B5%8BCRC"><span class="nav-number">3.2.2.</span> <span class="nav-text">循环冗余检测CRC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93"><span class="nav-number">3.3.</span> <span class="nav-text">可靠传输</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%9C%E6%AD%A2-%E7%AD%89%E5%BE%85%E5%8D%8F%E8%AE%AESW"><span class="nav-number">3.3.1.</span> <span class="nav-text">停止-等待协议SW</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GBN"><span class="nav-number">3.3.2.</span> <span class="nav-text">GBN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SR"><span class="nav-number">3.3.3.</span> <span class="nav-text">SR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PPP"><span class="nav-number">3.4.</span> <span class="nav-text">PPP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AA%92%E4%BD%93%E6%8E%A5%E5%85%A5%E6%8E%A7%E5%88%B6"><span class="nav-number">3.5.</span> <span class="nav-text">媒体接入控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%88%92%E5%88%86"><span class="nav-number">3.5.1.</span> <span class="nav-text">静态划分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%91%E5%88%86FDM"><span class="nav-number">3.5.1.1.</span> <span class="nav-text">频分FDM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E5%88%86TDM"><span class="nav-number">3.5.1.2.</span> <span class="nav-text">时分TDM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A2%E5%88%86WDM"><span class="nav-number">3.5.1.3.</span> <span class="nav-text">波分WDM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%81%E5%88%86CDM-CDMA"><span class="nav-number">3.5.1.4.</span> <span class="nav-text">码分CDM(CDMA)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E6%8E%A5%E5%85%A5"><span class="nav-number">3.5.2.</span> <span class="nav-text">动态接入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSMA-CD"><span class="nav-number">3.5.2.1.</span> <span class="nav-text">CSMA&#x2F;CD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSMA-CA"><span class="nav-number">3.5.2.2.</span> <span class="nav-text">CSMA&#x2F;CA</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC-IP-ARP"><span class="nav-number">3.6.</span> <span class="nav-text">MAC,IP,ARP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MAC"><span class="nav-number">3.6.1.</span> <span class="nav-text">MAC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP"><span class="nav-number">3.6.2.</span> <span class="nav-text">IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP"><span class="nav-number">3.6.3.</span> <span class="nav-text">ARP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BA%BF%E5%99%A8%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="nav-number">3.7.</span> <span class="nav-text">集线器与交换机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#STP"><span class="nav-number">3.7.1.</span> <span class="nav-text">STP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VLAN"><span class="nav-number">3.7.2.</span> <span class="nav-text">VLAN</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82-1"><span class="nav-number">4.</span> <span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E4%BE%9B%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.1.</span> <span class="nav-text">提供两种服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E9%93%BE%E6%8E%A5%E7%9A%84%E8%99%9A%E7%94%B5%E8%B7%AF%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.1.1.</span> <span class="nav-text">面向链接的虚电路服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.1.2.</span> <span class="nav-text">无连接数据报服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPv4"><span class="nav-number">4.2.</span> <span class="nav-text">IPv4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80"><span class="nav-number">4.2.1.</span> <span class="nav-text">分类编址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91"><span class="nav-number">4.2.2.</span> <span class="nav-text">划分子网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80"><span class="nav-number">4.2.3.</span> <span class="nav-text">无分类编址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.3.</span> <span class="nav-text">路由选择协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RIP"><span class="nav-number">4.3.1.</span> <span class="nav-text">RIP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSPF"><span class="nav-number">4.3.2.</span> <span class="nav-text">OSPF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BGP"><span class="nav-number">4.3.3.</span> <span class="nav-text">BGP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP"><span class="nav-number">4.3.4.</span> <span class="nav-text">ICMP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%AE%E9%94%99%E6%8A%A5%E5%91%8A"><span class="nav-number">4.3.4.1.</span> <span class="nav-text">差错报告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%A2%E9%97%AE%E6%8A%A5%E6%96%87"><span class="nav-number">4.3.4.2.</span> <span class="nav-text">询问报文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E7%BD%91%E9%97%B4%E6%8E%A2%E6%B5%8BPING"><span class="nav-number">4.3.4.3.</span> <span class="nav-text">分组网间探测PING</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%9F%E8%B8%AA%E8%B7%AF%E7%94%B1"><span class="nav-number">4.3.4.4.</span> <span class="nav-text">跟踪路由</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VPN"><span class="nav-number">4.4.</span> <span class="nav-text">VPN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NAT"><span class="nav-number">4.5.</span> <span class="nav-text">NAT</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E8%BE%93%E5%B1%82-1"><span class="nav-number">5.</span> <span class="nav-text">运输层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E5%8F%B7%E3%80%81%E5%A4%8D%E7%94%A8%E4%BA%8E%E5%88%86%E7%94%A8"><span class="nav-number">5.1.</span> <span class="nav-text">端口号、复用于分用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP-TCP"><span class="nav-number">5.2.</span> <span class="nav-text">UDP TCP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="nav-number">5.3.</span> <span class="nav-text">TCP流量控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="nav-number">5.4.</span> <span class="nav-text">TCP拥塞控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E8%B6%85%E6%97%B6%E9%87%8D%E4%BC%A0%E6%97%B6%E9%97%B4%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-number">5.5.</span> <span class="nav-text">TCP超时重传时间的选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93"><span class="nav-number">5.6.</span> <span class="nav-text">TCP可靠传输</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E8%BF%9E%E6%8E%A5"><span class="nav-number">5.7.</span> <span class="nav-text">TCP连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="nav-number">5.7.1.</span> <span class="nav-text">三次挥手</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E8%BF%9E%E6%8E%A5%E9%87%8A%E6%94%BE"><span class="nav-number">5.8.</span> <span class="nav-text">TCP连接释放</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Ling"
+      src="https://z3.ax1x.com/2021/05/06/glJAZd.png">
+  <p class="site-author-name" itemprop="name">Dai Ling</p>
+  <div class="site-description" itemprop="description">记录碎片</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dai Ling</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
