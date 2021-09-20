@@ -188,7 +188,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-09-20 09:23:27 / 修改时间：17:33:18" itemprop="dateCreated datePublished" datetime="2021-09-20T09:23:27+08:00">2021-09-20</time>
+              <time title="创建时间：2021-09-20 09:23:27 / 修改时间：20:13:38" itemprop="dateCreated datePublished" datetime="2021-09-20T09:23:27+08:00">2021-09-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -229,7 +229,35 @@
 <p>若$\alpha$ 可推出 $ε$，则$SELECT(A→α)= (First(α)-{ε})∪Follow(A)$</p>
 <h2 id="LL-1-文法"><a href="#LL-1-文法" class="headerlink" title="LL(1)文法"></a>LL(1)文法</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4GC28I"><img src="https://z3.ax1x.com/2021/09/20/4GC28I.png" alt="4GC28I.png"></a></p>
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4GC4r8"><img src="https://z3.ax1x.com/2021/09/20/4GC4r8.png" alt="4GC4r8.png"></a></p>
-<h2 id="LL-1-文法判别"><a href="#LL-1-文法判别" class="headerlink" title="LL(1)文法判别"></a>LL(1)文法判别</h2>
+<h2 id="LL-1-文法判别"><a href="#LL-1-文法判别" class="headerlink" title="LL(1)文法判别"></a>LL(1)文法判别</h2><p>判别步骤：</p>
+<h3 id="1-求出能推出ε的非终结符"><a href="#1-求出能推出ε的非终结符" class="headerlink" title="1. 求出能推出ε的非终结符"></a>1. 求出能推出ε的非终结符</h3><h3 id="2-计算FIRST集"><a href="#2-计算FIRST集" class="headerlink" title="2.计算FIRST集"></a>2.计算FIRST集</h3><ol>
+<li><p>若$x\in V_T$，则$first(x)={x}$</p>
+</li>
+<li><p>若$x\in V_N,x\rightarrow a…,a\in V_T$，则$a\in first(x)$</p>
+</li>
+<li><p>若$x\in V_N,x \rightarrow \epsilon$，则$\epsilon \in first(x)$</p>
+</li>
+<li><p>若$x\in V_N$，且有产生式$x \rightarrow Y_1Y_2…Y_n$，其中，$Y_1,Y_2,…Y_n\in V_N$</p>
+<p>当$Y_1,Y_2,…Y_{i-1}$都能推导出$\epsilon$时，</p>
+<p>则 $first(Y_1)-{\epsilon}\in first(x)$，一直到$i-1$，$first(Y_i)\in first(x)$</p>
+<p>当$Y_1,Y_2,…Y_n$都可以推出$\epsilon$时，</p>
+<p>则 $first(x) = first(Y_1)-{\epsilon} \cup…\cup first(Y_n)-{\epsilon}\cup {\epsilon}$</p>
+</li>
+</ol>
+<h3 id="3-计算FOLLOW集"><a href="#3-计算FOLLOW集" class="headerlink" title="3.计算FOLLOW集"></a>3.计算FOLLOW集</h3><ol>
+<li>设S为开始符号，把#加入Follow(S)中（#为句子括号）</li>
+<li>若$A \rightarrow \alpha B \beta$，则把$First(\beta)-{\epsilon}$加入$Follow(B)$，如果$\beta \implies \epsilon$，则把$Follow(A)$加入$Follow(B)$</li>
+<li>反复2，直到每个$V_N$的$Follow$不再增大</li>
+</ol>
+<h3 id="4-计算SELECT集"><a href="#4-计算SELECT集" class="headerlink" title="4.计算SELECT集"></a>4.计算SELECT集</h3><p>给定上下文无关文法的产生式$A \rightarrow \alpha,A \in V_N, \alpha \in V^*$</p>
+<ol>
+<li><p>若$\alpha$ 不可推出 $ε$，则$SELECT(A→α)= First(α)$</p>
+</li>
+<li><p>若$\alpha$ 可推出 $ε$，则$SELECT(A→α)= (First(α)-{ε})∪Follow(A)$</p>
+</li>
+</ol>
+<h3 id="5-判别是否是LL-1-文法"><a href="#5-判别是否是LL-1-文法" class="headerlink" title="5.判别是否是LL(1)文法"></a>5.判别是否是LL(1)文法</h3><p>左部相同的产生式的SELECT集的交集均为空。 </p>
+
       
     </div>
 
