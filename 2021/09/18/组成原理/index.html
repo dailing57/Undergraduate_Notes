@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="乘法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组成原理">
+<meta property="og:url" content="http://example.com/2021/09/18/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="DL&#39;s Blog">
+<meta property="og:description" content="乘法">
+<meta property="og:locale">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/19/41T5uV.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/19/41ToHU.png">
+<meta property="og:image" content="c:/Users/daili/AppData/Roaming/Typora/typora-user-images/image-20210919081328258.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/19/417JK0.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/19/417aaF.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/19/4170PJ.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/19/417hPH.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/19/417qZ8.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/19/417jiQ.png">
+<meta property="og:image" content="c:/Users/daili/AppData/Roaming/Typora/typora-user-images/image-20210919083757579.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/19/41LFdf.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/19/41LVJg.png">
+<meta property="og:image" content="c:/Users/daili/AppData/Roaming/Typora/typora-user-images/image-20210919092307723.png">
+<meta property="og:image" content="c:/Users/daili/AppData/Roaming/Typora/typora-user-images/image-20210919092740984.png">
+<meta property="og:image" content="c:/Users/daili/AppData/Roaming/Typora/typora-user-images/image-20210919092755186.png">
+<meta property="og:image" content="c:/Users/daili/AppData/Roaming/Typora/typora-user-images/image-20210919092820371.png">
+<meta property="article:published_time" content="2021-09-18T08:59:40.000Z">
+<meta property="article:modified_time" content="2021-09-20T09:12:44.861Z">
+<meta property="article:author" content="Dai Ling">
+<meta property="article:tag" content="组成原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/09/19/41T5uV.png">
+
+<link rel="canonical" href="http://example.com/2021/09/18/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>组成原理 | DL's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">DL's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Welcome to DL's Blog!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">14</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/18/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://z3.ax1x.com/2021/05/06/glJAZd.png">
+      <meta itemprop="name" content="Dai Ling">
+      <meta itemprop="description" content="记录碎片">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DL's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          组成原理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-18 16:59:40" itemprop="dateCreated datePublished" datetime="2021-09-18T16:59:40+08:00">2021-09-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-20 17:12:44" itemprop="dateModified" datetime="2021-09-20T17:12:44+08:00">2021-09-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">课程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h1><span id="more"></span>
+
+<h1 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h1><h2 id="定点除法"><a href="#定点除法" class="headerlink" title="定点除法"></a>定点除法</h2><p>对定点小数要求： |被除数|＜|除数|</p>
+<p>对定点整数要求： |被除数|＞|除数|</p>
+<h3 id="原码恢复余数法"><a href="#原码恢复余数法" class="headerlink" title="原码恢复余数法"></a>原码恢复余数法</h3><p>①判溢出，要求|被除数|＜|除数|；</p>
+<p>②符号位单独按两数符号的模2相加求得（异或）</p>
+<p>③被除数减去除数；</p>
+<p><strong>④若所得余数为正，表示够减，相应位上商为1， 余数左移一位(相当于除数右移)减去除数；若所 得余数为负，表示不够减，相应位上商为0，余 数加上除数(恢复余数)，再左移一位减去除数；</strong></p>
+<p>⑤重复第④步，直到求得所要求的商的各位为止</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/41T5uV"><img src="https://z3.ax1x.com/2021/09/19/41T5uV.png" alt="41T5uV.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/41ToHU"><img src="https://z3.ax1x.com/2021/09/19/41ToHU.png" alt="41ToHU.png"></a><img src="C:\Users\daili\AppData\Roaming\Typora\typora-user-images\image-20210919081328258.png" alt="image-20210919081328258"></p>
+<h3 id="原码不恢复余数法（加减交替法）"><a href="#原码不恢复余数法（加减交替法）" class="headerlink" title="原码不恢复余数法（加减交替法）"></a>原码不恢复余数法（加减交替法）</h3><p>① 判溢出，比较被除数和除数。若在定点小数运 算时，|被除数|＞|除数|，则除法将发生溢出， 不能进行除法运算。</p>
+<p>② 符号位单独处理，商的符号由被除数和除数符 号的异或运算求得。</p>
+<p>③ 用被除数和除数的数值部分进行运算，被除数 减去除数。</p>
+<p><strong>④ 若所得余数为正，表示够减，相应位上商为1， 将余数左移一位后，减去除数； 若所得余数为负，表示不够减，相应位上商为0， 将余数左移一位后，加上除数。</strong></p>
+<p>⑤ 重复第④步，直到求得所要求的商的各位 为止。如果最后一次所得余数仍为负，则需再 做一次加除数的操作，以得到正确的余数。</p>
+<h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h4><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/417JK0"><img src="https://z3.ax1x.com/2021/09/19/417JK0.png" alt="417JK0.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/417aaF"><img src="https://z3.ax1x.com/2021/09/19/417aaF.png" alt="417aaF.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4170PJ"><img src="https://z3.ax1x.com/2021/09/19/4170PJ.png" alt="4170PJ.png"></a></p>
+<hr>
+<h3 id="原码不恢复余数法（整数）"><a href="#原码不恢复余数法（整数）" class="headerlink" title="原码不恢复余数法（整数）"></a>原码不恢复余数法（整数）</h3><p>因为2n位被除数除以n位除数，可以得到n位的商。 在整数除法中，为了得到n位整数商，被除数位 数的长度应该是除数位数长度的两倍，并且为了 使商不超过n位，要求被除数的<strong>高n位比除数（n 位）小</strong>，否则商将超过n位，即运算结果<strong>溢出</strong>。</p>
+<p>如果被除数和除数的位数都为n位，则应在被除 数前面加上n个0，使被除数的长度扩展为2n后再 进行运算。</p>
+<p>在小数除法中，也可以使被除数位数的长度为除 数位数长度的两倍。 </p>
+<p>在字长为n的计算机中，称被除数采用双字长、 除数采用单字长的除法为<strong>双精度除法</strong>。相应地称 被除数和除数均采用单字长的除法为<strong>单精度除法。</strong></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/417hPH"><img src="https://z3.ax1x.com/2021/09/19/417hPH.png" alt="417hPH.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/417qZ8"><img src="https://z3.ax1x.com/2021/09/19/417qZ8.png" alt="417qZ8.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/417jiQ"><img src="https://z3.ax1x.com/2021/09/19/417jiQ.png" alt="417jiQ.png"></a></p>
+<p><img src="C:\Users\daili\AppData\Roaming\Typora\typora-user-images\image-20210919083757579.png" alt="image-20210919083757579"></p>
+<p>A寄存器：存放被除数和余数，最终结果是余数。</p>
+<p>B寄存器：存放除数。</p>
+<p>C寄存器：存放被除数和商，最终结果是商。</p>
+<p>运算过程中寄存器A、C联合左移。  商的符号Cf：Cf＝Af⊕Bf </p>
+<p>运算过程中用Ff控制上商。</p>
+<p>Ff＝0，说明余数r≥0，商1，作－B操作， 即 B＋1。 </p>
+<p>Ff＝1，说明余数r＜0，商0，作＋B操作。</p>
+<p> 在实现定点小数和定点整数除法时，寄存器的分配使用略有不同。</p>
+<h2 id="补码除法运算"><a href="#补码除法运算" class="headerlink" title="补码除法运算"></a>补码除法运算</h2><p>在补码除法运算中，参加运算的数均为补 码数，所得商也是补码形式，符号位参加 运算。</p>
+<h3 id="补码不恢复余数除法"><a href="#补码不恢复余数除法" class="headerlink" title="补码不恢复余数除法"></a>补码不恢复余数除法</h3><p>进行补码除法运算应考虑的几个问题。</p>
+<p>比较规则 —— 如何判别是否够减 </p>
+<p>由于上商是根据比较被除数(或余数)与除 数的绝对值的大小确定的，所以需要解决 如何比较两个补码数的绝对值的大小，也 就是如何判别是否够减的问题。</p>
+<h4 id="比较规则"><a href="#比较规则" class="headerlink" title="比较规则"></a>比较规则</h4><p>当x与y同号时，作[x]补－[y]补进行比较</p>
+<p>若所得余数与除数同号，表示够减</p>
+<p>若所得余数与除数异号，表示不够减</p>
+<h4 id="上商算法"><a href="#上商算法" class="headerlink" title="上商算法"></a>上商算法</h4><p>由于是补码运算，所以：</p>
+<p>当x与y同号时，商为正，够减时上商为1，不够减时上商为0</p>
+<p>当x与y异号时，商为负，够减时上商为0，不够减时上商为1 </p>
+<p> • 上商算法</p>
+<p> • 每次加减所得的余数与除数同号时，上商为1</p>
+<p> • 每次加减所得的余数与除数异号时，上商为0</p>
+<h4 id="商的符号"><a href="#商的符号" class="headerlink" title="商的符号"></a>商的符号</h4><p>若x与y同号，商为正。</p>
+<p> 第一次运算时作 [x]补－[y]补，因为除法要求 |x|＜|y|，所以所得余数R0必不够减，即R0与 [y]补异号，应上商为0，就是正商的符号“0” 。 </p>
+<p>若x与y异号，商为负。</p>
+<p>第一次运算时作 [x]补＋[y]补，因为除法要求 |x|＜|y|，所以所得余数R0必不够减，即R0与 [y]补同号，应上商为1，就是负商的符号“1” 。</p>
+<p>① 当被除数[x]补与除数[y]补<strong>同号</strong>时，如果余数[r]补与[y]补<strong>同号</strong>，且上商为“<strong>1</strong>” ，则表示商溢出。 </p>
+<p>② 当被除数[x]补与除数[y]补<strong>异号</strong>时，如果余数[r]补与[y]补<strong>异号</strong>，且上商为“<strong>0</strong>” ，则表示商溢出。</p>
+<h4 id="求新余数算法"><a href="#求新余数算法" class="headerlink" title="求新余数算法"></a>求新余数算法</h4><p>每次加减所得的余数与除数同号时，将余数左 移一位，减去除数。</p>
+<p>每次加减所得的余数与除数异号时，将余数左 移一位，加上除数。</p>
+<h4 id="商的校正"><a href="#商的校正" class="headerlink" title="商的校正"></a>商的校正</h4><h5 id="末尾恒置1"><a href="#末尾恒置1" class="headerlink" title="末尾恒置1"></a>末尾恒置1</h5><h5 id="校正法"><a href="#校正法" class="headerlink" title="校正法"></a>校正法</h5><p>① 若在所要求的位数内<strong>能够除尽</strong>，则除数<strong>y</strong>为正时，商不必校正；y为负时，商加$2^{-n}$校正。</p>
+<p>② 若在所要求的位数内<strong>不能除尽</strong>，则<strong>商</strong>为正时，不必校正；商为负时，则商加$2^{-n}$校正。</p>
+<h4 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h4><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/41LFdf"><img src="https://z3.ax1x.com/2021/09/19/41LFdf.png" alt="41LFdf.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/41LVJg"><img src="https://z3.ax1x.com/2021/09/19/41LVJg.png" alt="41LVJg.png"></a></p>
+<p><img src="C:\Users\daili\AppData\Roaming\Typora\typora-user-images\image-20210919092307723.png" alt="image-20210919092307723"></p>
+<h3 id="布斯除法"><a href="#布斯除法" class="headerlink" title="布斯除法"></a>布斯除法</h3><p>① 余数(初始为被除数)与除数同号，上商为1， 余数左移一位，减去除数；</p>
+<p>​    余数(初始为被除数)与除数异号，上商为0， 余数左移一位，加上除数；</p>
+<p>② 重复上述步骤，直到求得所需位数为止；</p>
+<p>③ 将<strong>商符变反</strong>，若采用校正法，则对商校正。</p>
+<p><img src="C:\Users\daili\AppData\Roaming\Typora\typora-user-images\image-20210919092740984.png" alt="image-20210919092740984"></p>
+<p><img src="C:\Users\daili\AppData\Roaming\Typora\typora-user-images\image-20210919092755186.png" alt="image-20210919092755186"></p>
+<p><img src="C:\Users\daili\AppData\Roaming\Typora\typora-user-images\image-20210919092820371.png" alt="image-20210919092820371"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag"># 组成原理</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/24/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="prev" title="云计算">
+      <i class="fa fa-chevron-left"></i> 云计算
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%98%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">乘法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%A4%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">除法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E9%99%A4%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">定点除法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E6%81%A2%E5%A4%8D%E4%BD%99%E6%95%B0%E6%B3%95"><span class="nav-number">2.1.1.</span> <span class="nav-text">原码恢复余数法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E4%B8%8D%E6%81%A2%E5%A4%8D%E4%BD%99%E6%95%B0%E6%B3%95%EF%BC%88%E5%8A%A0%E5%87%8F%E4%BA%A4%E6%9B%BF%E6%B3%95%EF%BC%89"><span class="nav-number">2.1.2.</span> <span class="nav-text">原码不恢复余数法（加减交替法）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-1"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E4%B8%8D%E6%81%A2%E5%A4%8D%E4%BD%99%E6%95%B0%E6%B3%95%EF%BC%88%E6%95%B4%E6%95%B0%EF%BC%89"><span class="nav-number">2.1.3.</span> <span class="nav-text">原码不恢复余数法（整数）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E9%99%A4%E6%B3%95%E8%BF%90%E7%AE%97"><span class="nav-number">2.2.</span> <span class="nav-text">补码除法运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E4%B8%8D%E6%81%A2%E5%A4%8D%E4%BD%99%E6%95%B0%E9%99%A4%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">补码不恢复余数除法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E8%A7%84%E5%88%99"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">比较规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8A%E5%95%86%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">上商算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%95%86%E7%9A%84%E7%AC%A6%E5%8F%B7"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">商的符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%82%E6%96%B0%E4%BD%99%E6%95%B0%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">求新余数算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%95%86%E7%9A%84%E6%A0%A1%E6%AD%A3"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">商的校正</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%AB%E5%B0%BE%E6%81%92%E7%BD%AE1"><span class="nav-number">2.2.1.5.1.</span> <span class="nav-text">末尾恒置1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%A1%E6%AD%A3%E6%B3%95"><span class="nav-number">2.2.1.5.2.</span> <span class="nav-text">校正法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-2"><span class="nav-number">2.2.1.6.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%83%E6%96%AF%E9%99%A4%E6%B3%95"><span class="nav-number">2.2.2.</span> <span class="nav-text">布斯除法</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Ling"
+      src="https://z3.ax1x.com/2021/05/06/glJAZd.png">
+  <p class="site-author-name" itemprop="name">Dai Ling</p>
+  <div class="site-description" itemprop="description">记录碎片</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dai Ling</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
