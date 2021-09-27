@@ -30,8 +30,12 @@
 <meta property="og:image" content="https://z3.ax1x.com/2021/09/20/48v5bd.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/09/20/4GC28I.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/09/20/4GC4r8.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/27/4gut8x.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/27/4gMhNj.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/27/4g8Rte.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/27/4gGUDP.png">
 <meta property="article:published_time" content="2021-09-20T01:23:27.000Z">
-<meta property="article:modified_time" content="2021-09-22T23:38:48.933Z">
+<meta property="article:modified_time" content="2021-09-27T02:01:46.960Z">
 <meta property="article:author" content="Dai Ling">
 <meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
@@ -201,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-23 07:38:48" itemprop="dateModified" datetime="2021-09-23T07:38:48+08:00">2021-09-23</time>
+                <time title="修改时间：2021-09-27 10:01:46" itemprop="dateModified" datetime="2021-09-27T10:01:46+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,9 +280,34 @@
 <h3 id="预测分析法"><a href="#预测分析法" class="headerlink" title="预测分析法"></a>预测分析法</h3><p>（1）提取左公共因子，消除左递归</p>
 <p>（2）判断文法是否为LL(1)文法</p>
 <p>（3）若是，构造预测分析表；</p>
-<pre><code>      否则，不能进行“确定的自顶向下”分析
-</code></pre>
+<p>​    否则，不能进行“确定的自顶向下”分析</p>
 <p>（4）预测分析程序根据“预测分析表”并利用“分析栈”，对输入串进行分析</p>
+<h1 id="自底向上优先分析法"><a href="#自底向上优先分析法" class="headerlink" title="自底向上优先分析法"></a>自底向上优先分析法</h1><p>自底向上分析方法，也称<strong>移进-归约</strong>分析法。</p>
+<p>实现思想：<br>对输入符号串自左向右进行扫描，并将输入符逐个移入一个后进先出栈中，边移入边分析，一旦栈顶符号串形成某个句型的句柄或可归约串时，就用该产生式的左部非终结符代替相应右部的文法符号串，这称为归约。<br>重复这一过程，直到栈中只剩文法的开始符号时，则分析成功，也就确认输入串是文法的句子。</p>
+<p>自底向上分析的策略：移进-归约分析。<br><strong>移进就是将一个终结符推进符号栈</strong><br><strong>归约就是将0个或多个符号从栈中弹出，根据产生式将一个非终结符压入符号栈</strong><br>移进-归约过程是规范推导（最右推导）的逆过程，所以它是规范归约。<br>何时移进？何时归约？<br>自底向上分析的关键：在分析过程中如何确定“句柄”。即：确定何时可以归约栈顶的符号串。</p>
+<h2 id="简单优先分析法"><a href="#简单优先分析法" class="headerlink" title="简单优先分析法"></a>简单优先分析法</h2><p>先按照一定原则，求出文法所有符号（VT和VN）之间的优先关系；再按照优先关系确定归约过程中的句柄。</p>
+<h3 id="优先关系"><a href="#优先关系" class="headerlink" title="优先关系"></a>优先关系</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4gut8x"><img src="https://z3.ax1x.com/2021/09/27/4gut8x.png" alt="4gut8x.png"></a></p>
+<p>1.拓广文法 S’ $\rightarrow$ #S#</p>
+<p>2.构造优先关系表</p>
+<p>3.判断是否为简单优先文法</p>
+<p>4.根据优先关系表分析句子</p>
+<p><strong>满足以下条件的文法是简单优先文法</strong><br>（1）在文法符号集V中，任意两个符号之间最多只有一种优先关系。<br>（2）在文法中，任意两个产生式没有相同的右部。<br>（3）不含空产生式。</p>
+<p>构造相应优先关系矩阵，并将文法的产生式保存，设置符号栈S，算法步骤如下：</p>
+<p>1.将输入符号串a1a2a3…an# 依次逐个存入符号栈S中，直到遇到栈顶符号$a_i$下一个待输入符号$a_j$时为止。</p>
+<p>2.栈顶当前符号$a_i$为句柄尾，由此向左在栈中找句柄的头符号$a_k$，即找到$a_{k-1}&lt;a_k$为止。</p>
+<p>3.找到句柄$a_k…a_i$，在文法的产生式中查找右部为$a_k…a_i$的产生式，若找到则用相应左部代替句柄，若找不到则为出错，这时可断定输入串不是该文法的句子。</p>
+<p>4.重复上述三步，直到归约完所有输入符号串为止。 （此时栈中只剩文法的开始符号）</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4gMhNj"><img src="https://z3.ax1x.com/2021/09/27/4gMhNj.png" alt="4gMhNj.png"></a></p>
+<h2 id="算符优先分析"><a href="#算符优先分析" class="headerlink" title="算符优先分析"></a>算符优先分析</h2><p>主要思想：<br>对文法按照一定规则，求出VT之间的优先关系；再按照这种优先关系来确定可归约串。<br>实现步骤：<br>拓广文法 S’ $\rightarrow$ #S#<br>构造算符优先关系表<br>判断是否为算符优先文法（OPG文法）<br>根据优先关系表分析句子</p>
+<h3 id="优先关系-1"><a href="#优先关系-1" class="headerlink" title="优先关系"></a>优先关系</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4g8Rte"><img src="https://z3.ax1x.com/2021/09/27/4g8Rte.png" alt="4g8Rte.png"></a></p>
+<h3 id="优先关系表的构造"><a href="#优先关系表的构造" class="headerlink" title="优先关系表的构造"></a>优先关系表的构造</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4gGUDP"><img src="https://z3.ax1x.com/2021/09/27/4gGUDP.png" alt="4gGUDP.png"></a></p>
+<h3 id="算符优先文法的定义"><a href="#算符优先文法的定义" class="headerlink" title="算符优先文法的定义"></a>算符优先文法的定义</h3><p>–不含空产生式</p>
+<p>–任何产生式右部不包含两个相邻的非终结符</p>
+<p>–任何两个终结符之间优先关系唯一</p>
+<p>归约过程中，只考虑终结符之间的优先关系来确定句柄，而与非终结符无关。这样去掉了单个非终结符的归约，所以用算符优先分析法的规约过程不是规范归约。<br>为解决在算符优先分析过程中如何寻找句柄，引进最左素短语的概念</p>
+<p><strong>素短语</strong></p>
+<p> 设有文法G[S]，其句型的素短语是一个短语，它至少包含一个终结符，且除自身外不再包含其他素短语。</p>
+<p>最左素短语：句型最左边的素短语。</p>
 
     </div>
 
@@ -362,7 +391,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">自顶向下语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#First%E9%9B%86%E5%90%88"><span class="nav-number">1.1.</span> <span class="nav-text">First集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Follow%E9%9B%86%E5%90%88"><span class="nav-number">1.2.</span> <span class="nav-text">Follow集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Select%E9%9B%86%E5%90%88"><span class="nav-number">1.3.</span> <span class="nav-text">Select集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LL-1-%E6%96%87%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">LL(1)文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">1.4.1.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LL-1-%E6%96%87%E6%B3%95%E5%88%A4%E5%88%AB"><span class="nav-number">1.5.</span> <span class="nav-text">LL(1)文法判别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B1%82%E5%87%BA%E8%83%BD%E6%8E%A8%E5%87%BA%CE%B5%E7%9A%84%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. 求出能推出ε的非终结符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%AE%A1%E7%AE%97FIRST%E9%9B%86"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.计算FIRST集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%AE%A1%E7%AE%97FOLLOW%E9%9B%86"><span class="nav-number">1.5.3.</span> <span class="nav-text">3.计算FOLLOW集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%AE%A1%E7%AE%97SELECT%E9%9B%86"><span class="nav-number">1.5.4.</span> <span class="nav-text">4.计算SELECT集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%88%A4%E5%88%AB%E6%98%AF%E5%90%A6%E6%98%AFLL-1-%E6%96%87%E6%B3%95"><span class="nav-number">1.5.5.</span> <span class="nav-text">5.判别是否是LL(1)文法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E7%9A%84%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="nav-number">1.6.</span> <span class="nav-text">确定的自顶向下分析方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9ELL-1-%E5%88%B0LL-1"><span class="nav-number">1.6.1.</span> <span class="nav-text">非LL(1)到LL(1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%AD%90%E7%A8%8B%E5%BA%8F%E6%B3%95"><span class="nav-number">1.6.2.</span> <span class="nav-text">递归子程序法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E6%B3%95"><span class="nav-number">1.6.3.</span> <span class="nav-text">预测分析法</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">自顶向下语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#First%E9%9B%86%E5%90%88"><span class="nav-number">1.1.</span> <span class="nav-text">First集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Follow%E9%9B%86%E5%90%88"><span class="nav-number">1.2.</span> <span class="nav-text">Follow集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Select%E9%9B%86%E5%90%88"><span class="nav-number">1.3.</span> <span class="nav-text">Select集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LL-1-%E6%96%87%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">LL(1)文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">1.4.1.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LL-1-%E6%96%87%E6%B3%95%E5%88%A4%E5%88%AB"><span class="nav-number">1.5.</span> <span class="nav-text">LL(1)文法判别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B1%82%E5%87%BA%E8%83%BD%E6%8E%A8%E5%87%BA%CE%B5%E7%9A%84%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. 求出能推出ε的非终结符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%AE%A1%E7%AE%97FIRST%E9%9B%86"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.计算FIRST集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%AE%A1%E7%AE%97FOLLOW%E9%9B%86"><span class="nav-number">1.5.3.</span> <span class="nav-text">3.计算FOLLOW集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%AE%A1%E7%AE%97SELECT%E9%9B%86"><span class="nav-number">1.5.4.</span> <span class="nav-text">4.计算SELECT集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%88%A4%E5%88%AB%E6%98%AF%E5%90%A6%E6%98%AFLL-1-%E6%96%87%E6%B3%95"><span class="nav-number">1.5.5.</span> <span class="nav-text">5.判别是否是LL(1)文法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E7%9A%84%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="nav-number">1.6.</span> <span class="nav-text">确定的自顶向下分析方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9ELL-1-%E5%88%B0LL-1"><span class="nav-number">1.6.1.</span> <span class="nav-text">非LL(1)到LL(1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%AD%90%E7%A8%8B%E5%BA%8F%E6%B3%95"><span class="nav-number">1.6.2.</span> <span class="nav-text">递归子程序法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E6%B3%95"><span class="nav-number">1.6.3.</span> <span class="nav-text">预测分析法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E4%BC%98%E5%85%88%E5%88%86%E6%9E%90%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">自底向上优先分析法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E4%BC%98%E5%85%88%E5%88%86%E6%9E%90%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">简单优先分析法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E5%85%B3%E7%B3%BB"><span class="nav-number">2.1.1.</span> <span class="nav-text">优先关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E5%88%86%E6%9E%90"><span class="nav-number">2.2.</span> <span class="nav-text">算符优先分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E5%85%B3%E7%B3%BB-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">优先关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E5%85%B3%E7%B3%BB%E8%A1%A8%E7%9A%84%E6%9E%84%E9%80%A0"><span class="nav-number">2.2.2.</span> <span class="nav-text">优先关系表的构造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E6%96%87%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.2.3.</span> <span class="nav-text">算符优先文法的定义</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
