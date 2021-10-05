@@ -20,18 +20,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="计算范式">
+  <meta name="description" content="分布式系统模型和关键技术互联网之上的可扩展计算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="云计算">
 <meta property="og:url" content="http://example.com/2021/08/24/%E4%BA%91%E8%AE%A1%E7%AE%97/index.html">
 <meta property="og:site_name" content="DL&#39;s Blog">
-<meta property="og:description" content="计算范式">
+<meta property="og:description" content="分布式系统模型和关键技术互联网之上的可扩展计算">
 <meta property="og:locale">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/05/4jqrIe.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/05/4jL2Y4.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/05/4jvtun.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/05/4jvgD1.png">
 <meta property="article:published_time" content="2021-08-24T02:58:17.000Z">
-<meta property="article:modified_time" content="2021-09-20T09:27:00.458Z">
+<meta property="article:modified_time" content="2021-10-05T08:11:49.840Z">
 <meta property="article:author" content="Dai Ling">
 <meta property="article:tag" content="云计算">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/10/05/4jqrIe.png">
 
 <link rel="canonical" href="http://example.com/2021/08/24/%E4%BA%91%E8%AE%A1%E7%AE%97/">
 
@@ -197,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-20 17:27:00" itemprop="dateModified" datetime="2021-09-20T17:27:00+08:00">2021-09-20</time>
+                <time title="修改时间：2021-10-05 16:11:49" itemprop="dateModified" datetime="2021-10-05T16:11:49+08:00">2021-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,21 +225,61 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="计算范式"><a href="#计算范式" class="headerlink" title="计算范式"></a>计算范式</h2><span id="more"></span>
+        <h1 id="分布式系统模型和关键技术"><a href="#分布式系统模型和关键技术" class="headerlink" title="分布式系统模型和关键技术"></a>分布式系统模型和关键技术</h1><h2 id="互联网之上的可扩展计算"><a href="#互联网之上的可扩展计算" class="headerlink" title="互联网之上的可扩展计算"></a>互联网之上的可扩展计算</h2><span id="more"></span>
 
-<p>集中式计算</p>
-<p>并行计算</p>
-<p>分布式计算</p>
-<p>云计算：一个互联网云的资源可以是集中式的，也可以是分布式的。云采用分布式或者并行计算</p>
-<p>普适计算</p>
-<p>互联网计算涵盖所有计算范式</p>
-<p>HPC和PTC遵从的原则：</p>
-<p>效率，可信，编程模型适应性，应用部署的灵活性</p>
-<p>可扩展性计算趋势和新范式</p>
-<p>位级并行</p>
-<p>指令级并行</p>
-<p>数据级并行</p>
-<p>任务级并行</p>
+<p>一个并行的、分布式的计算系统使用大量的计算机解决<strong>互联网上的大规模计算</strong>问题。分布式计算的缺点是<strong>数据敏感</strong>和<strong>网络中心化</strong>。 </p>
+<h3 id="计算范式间的区别"><a href="#计算范式间的区别" class="headerlink" title="计算范式间的区别"></a>计算范式间的区别</h3><p><strong>集中式</strong>计算:这种计算范式是将所有计算资源集中在一个物理系统之内。所有资源（处理器、内存、存储器）是<strong>全部共享</strong>的，并且紧耦合在一个集成式的操作系统中。</p>
+<p><strong>并行</strong>计算：在并行计算中，所有处理器或是<strong>紧耦合于中心共享内存</strong>或是<strong>松耦合于分布式内存</strong>。</p>
+<p><strong>分布式</strong>计算：一个分布式系统由众多自治的计算机组成，<strong>各自拥有其私有内存</strong>，通过计算机网络通信。分布式系统中的信息交换通过消息传递的方式完成。</p>
+<p><strong>云</strong>计算：一个互联网云的资源可以是集中式的也可以是分布式的。<strong>云</strong>采用<strong>分布式计算或并行计算</strong>，或两者兼有。云可以在集中的或分布式的大规模数据中心之上，由物理的或虚拟的计算资源构建。</p>
+<p>普适计算是指在任何地点和时间通过有线或者无线<strong>网络</strong>使用<strong>普遍的设备</strong>进行计算。</p>
+<p>物联网是一个日常生活对象（包括计算机、传感器、人等）网络化的连接。物联网通过互联网云实现任何对象在任何地点和时间的普适计算。</p>
+<p>互联网计算这一术语几乎涵盖了所有和互联网相关的计算范式。</p>
+<h3 id="HPC和HTC系统需要遵从的设计原则"><a href="#HPC和HTC系统需要遵从的设计原则" class="headerlink" title="HPC和HTC系统需要遵从的设计原则"></a>HPC和HTC系统需要遵从的设计原则</h3><p>效率:在HPC系统中开发大规模并行计算时，度量执行模型内资源的利用率。对于HTC系统，效率更依赖于系统的任务吞吐量、数据访问、存储、节能。</p>
+<p>可信：度量从芯片到系统到应用级别的可靠性和自管理能力。<strong>目的是提供有服务质量（QoS）</strong>保证的<strong>高吞吐量服务</strong>，即使是失效的情况下。</p>
+<p>编程模型适应性：度量在海量数据集和虚拟云资源上各种负载和服务模型下支持数十亿任务请求的能力。</p>
+<p>应用部署的灵活性：度量分布式系统能够同时很好地运行在HPC（科学和工程）和HTC（商业）应用上的能力。</p>
+<h3 id="可扩展性计算趋势和新的范式"><a href="#可扩展性计算趋势和新的范式" class="headerlink" title="可扩展性计算趋势和新的范式"></a>可扩展性计算趋势和新的范式</h3><p>位级并行（Bit Level Parallelism，BLP）</p>
+<p>指令级并行（Instruction Level Parallelism，ILP）。通过指令流水线、超标量计算、VLIW体系结构、多线程实践了ILP。ILP需要分支预测、动态规划、投机预测、提高运行效率的编译支持。</p>
+<p>数据级并行（Data Level Parallelism，DLP）的流行源于SIMD和使用向量与数组指令类型的向量机</p>
+<p>任务级并行（Task Level Parallelism，TLP）</p>
+<p>作业级并行（Job Level Parallelism ，JLP）</p>
+<h3 id="物联网和CPS"><a href="#物联网和CPS" class="headerlink" title="物联网和CPS"></a>物联网和CPS</h3><p>物联网是指日常生活中对象、工具、设备或计算机间存在网络互连。物联网为互联了所有我们生活中的对象的无线传感器网络。</p>
+<p>CPS是计算过程和物理世界之间交互的结果。<strong>CPS集成了“计算节点”（同构，异构）和“物理”（并发和信息密集的）对象</strong>。CPS在物理世界和信息世界之间将“3C”技术（计算、通信、控制）融合到了一个智能闭环反馈系统中。</p>
+<p>物联网强调物理对象之间的多样化连接，而CPS强调物理世界中虚拟现实应用的开发和研究。</p>
+<h2 id="并行与分布式相关技术"><a href="#并行与分布式相关技术" class="headerlink" title="并行与分布式相关技术"></a>并行与分布式相关技术</h2><h3 id="多核CPU和多线程技术"><a href="#多核CPU和多线程技术" class="headerlink" title="多核CPU和多线程技术"></a>多核CPU和多线程技术</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4jqrIe"><img src="https://z3.ax1x.com/2021/10/05/4jqrIe.png" alt="4jqrIe.png"></a></p>
+<p>现代CPU处理器的5种微体系结构，通过多核和多线程技术支持<strong>ILP</strong>和<strong>TLP</strong></p>
+<h4 id="大规模和超大规模GPU计算"><a href="#大规模和超大规模GPU计算" class="headerlink" title="大规模和超大规模GPU计算"></a>大规模和超大规模GPU计算</h4><p>数百或数千处理核心的海量并行处理中协同CPU的GPU使用</p>
+<h3 id="系统区域互连"><a href="#系统区域互连" class="headerlink" title="系统区域互连"></a>系统区域互连</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4jL2Y4"><img src="https://z3.ax1x.com/2021/10/05/4jL2Y4.png" alt="4jL2Y4.png"></a></p>
+<p>分布式和云计算系统都建立于<strong>大量自治的计算机节点</strong>之上。这些节点通过<strong>SAN、LAN或WAN以层次方式</strong>互连。</p>
+<h3 id="虚拟机和虚拟化中间件"><a href="#虚拟机和虚拟化中间件" class="headerlink" title="虚拟机和虚拟化中间件"></a>虚拟机和虚拟化中间件</h3><p>建立大规模集群、网格和云，我们需要以虚拟的方式访问大量的计算、存储和网络化资源。我们需要集群化这些资源，并希望提供一个<strong>单独的系统镜像</strong>。 </p>
+<p>分布式计算环境中的虚拟机<strong>复用、挂起、供应和迁移</strong></p>
+<h2 id="分布式和云计算系统模型"><a href="#分布式和云计算系统模型" class="headerlink" title="分布式和云计算系统模型"></a>分布式和云计算系统模型</h2><p>分布式和云计算系统都建立于<strong>大量自治的计算机节点</strong>之上。这些节点通过SAN、LAN或WAN以层次方式互连。</p>
+<p>大系统被认为高可扩展，并能在物理上或逻辑上达到<strong>Web规模互连</strong>。</p>
+<p>大系统被划分为四组：集群、P2P网络、计算网格、大数据中心之上的互联网云。</p>
+<p>集群应该<strong>合并多个系统镜像到一个单系统镜像</strong>（SSI）。集群设计者期待一个集群操作系统或者一些中间件<strong>在各个级别支持SSI</strong>。</p>
+<h3 id="网格计算"><a href="#网格计算" class="headerlink" title="网格计算"></a>网格计算</h3><p>在过去30年，用户经历了一个从互联网到Web和网格计算服务的自然发展。互联网服务（如Telnet命令）使本地计算机可以连接到一台远程计算机。一个Web服务（如HTTP）使远程访问Web页面成为可能。网格计算被预想用于同时在多台远距离计算机上运行的应用间进行近距离交互。</p>
+<p>网格呈现为<strong>集成的计算资源</strong>。它们也可以被视为支持虚拟组织的虚拟平台。</p>
+<h3 id="对等网络（P2P）"><a href="#对等网络（P2P）" class="headerlink" title="对等网络（P2P）"></a>对等网络（P2P）</h3><p>客户端服务器体系结构。客户机（PC和工作站）被连接到一个中央服务器，用来进行计算、电子邮件、文件访问和数据库应用。P2P体系结构提供了一个分布式的网络化系统模型。</p>
+<p>在一个P2P系统中，每个节点既是客户端又是服务器，提供部分系统资源。</p>
+<p>节点机器都是简单的接入互联网的客户机。所有客户机自治、自由地加入和退出系统。不存在主从关系。</p>
+<p>无需中心协作或中心数据库。系统是分布式控制下自组织的。</p>
+<p>P2P计算在硬件、软件和网络需求上面临三类异构问题。有太多的<strong>硬件模型和体系结构</strong>而无法选择；<strong>软件和操作系统</strong>间不相容；不同的<strong>网络连接和协议</strong>使其过于复杂而较难应用于真实应用。</p>
+<h3 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a><strong>云计算</strong></h3><p>云是虚拟计算机资源池。云可以处理各种不同的负载，包括批处理式后端作业和交互式用户界面应用。</p>
+<p>云通过迅速提供虚拟机或物理机允许负载被快速配置和划分。云支持冗余、自恢复、高可扩展编程模型，以允许负载从许多不可避免的硬件/软件错误中恢复。最终，云计算系统可以通过实时监视资源来确保分配在需要时平衡。</p>
+<p>基础设施即服务（IaaS）：这个模型将用户需要的基础设施（即<strong>服务器、存储、网络</strong>和数据中心构造）组合在一起。用户可以在使用客户机操作系统的多个虚拟机上配置和运行指定应用。</p>
+<p>平台即服务（PaaS）：这个模型使用户能够在一个虚拟的云平台上<strong>配置用户定制的应用</strong>。PaaS包括<strong>中间件、数据库、开发工具</strong>和一些运行时支持（如Web 2.0和Java）。</p>
+<p>软件即服务（SaaS）:这是指面向数千付费云用户的初始浏览器的应用软件。<strong>SaaS模型应用于业务流程、工业应用、客户关系管理、企业资源计划、人力资源和合作应用。</strong></p>
+<h2 id="分布式系统和云计算软件环境"><a href="#分布式系统和云计算软件环境" class="headerlink" title="分布式系统和云计算软件环境"></a><strong>分布式系统和云计算软件环境</strong></h2><h3 id="分布式操作系统"><a href="#分布式操作系统" class="headerlink" title="分布式操作系统"></a>分布式操作系统</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4jvtun"><img src="https://z3.ax1x.com/2021/10/05/4jvtun.png" alt="4jvtun.png"></a></p>
+<h3 id="已有并行和分布式编程模型"><a href="#已有并行和分布式编程模型" class="headerlink" title="已有并行和分布式编程模型"></a>已有并行和分布式编程模型</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4jvgD1"><img src="https://z3.ax1x.com/2021/10/05/4jvgD1.png" alt="4jvgD1.png"></a></p>
+<h3 id="面向服务的体系结构（SOA）"><a href="#面向服务的体系结构（SOA）" class="headerlink" title="面向服务的体系结构（SOA）"></a>面向服务的体系结构（SOA）</h3><p>网格与云服务</p>
+<p>网格和云之间的界限近年来变得越来越模糊。对于Web服务，工作流技术用于协调或编排具有指定规范的服务，其中这些规范用于定义关键业务流程模型，如两阶段事务。</p>
+<p>网格系统使用<strong>静态资源</strong>，而云强调<strong>弹性资源</strong>。</p>
+<p>网格和云之间的不同<strong>仅限于基于虚拟化和自治计算的动态资源管理</strong>。可以通过多个云建立网格。这种网格比一个单纯的云能更好的工作，因为它能<strong>明确支持协议资源分配</strong>。从而可以建立系统的系统，如云之云、云网格、网格云，或互联云作为一个基本SOA体系结构。</p>
+<h3 id="分布式和云计算的可扩展性"><a href="#分布式和云计算的可扩展性" class="headerlink" title="分布式和云计算的可扩展性:"></a>分布式和云计算的可扩展性:</h3><p>规模可扩展性：指通过增加机器数量来获取更高的性能和更多的功能。</p>
+<p>软件可扩展性：指升级操作系统或编译器，增加数学和工程库，移植新的应用软件，安装更多的用户友好的编程环境。</p>
+<p>应用可扩展性：指问题的规模扩展与机器的大小扩展相匹配。</p>
+<p>技术可扩展性：指系统可以适应构建技术的变化</p>
 
     </div>
 
@@ -318,7 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%8C%83%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">计算范式</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF"><span class="nav-number">1.</span> <span class="nav-text">分布式系统模型和关键技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E4%B9%8B%E4%B8%8A%E7%9A%84%E5%8F%AF%E6%89%A9%E5%B1%95%E8%AE%A1%E7%AE%97"><span class="nav-number">1.1.</span> <span class="nav-text">互联网之上的可扩展计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%8C%83%E5%BC%8F%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.1.</span> <span class="nav-text">计算范式间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HPC%E5%92%8CHTC%E7%B3%BB%E7%BB%9F%E9%9C%80%E8%A6%81%E9%81%B5%E4%BB%8E%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-number">1.1.2.</span> <span class="nav-text">HPC和HTC系统需要遵从的设计原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7%E8%AE%A1%E7%AE%97%E8%B6%8B%E5%8A%BF%E5%92%8C%E6%96%B0%E7%9A%84%E8%8C%83%E5%BC%8F"><span class="nav-number">1.1.3.</span> <span class="nav-text">可扩展性计算趋势和新的范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E8%81%94%E7%BD%91%E5%92%8CCPS"><span class="nav-number">1.1.4.</span> <span class="nav-text">物联网和CPS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%88%86%E5%B8%83%E5%BC%8F%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF"><span class="nav-number">1.2.</span> <span class="nav-text">并行与分布式相关技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%A0%B8CPU%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E6%9C%AF"><span class="nav-number">1.2.1.</span> <span class="nav-text">多核CPU和多线程技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%92%8C%E8%B6%85%E5%A4%A7%E8%A7%84%E6%A8%A1GPU%E8%AE%A1%E7%AE%97"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">大规模和超大规模GPU计算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%9F%9F%E4%BA%92%E8%BF%9E"><span class="nav-number">1.2.2.</span> <span class="nav-text">系统区域互连</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E8%99%9A%E6%8B%9F%E5%8C%96%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">1.2.3.</span> <span class="nav-text">虚拟机和虚拟化中间件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E5%92%8C%E4%BA%91%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">分布式和云计算系统模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E6%A0%BC%E8%AE%A1%E7%AE%97"><span class="nav-number">1.3.1.</span> <span class="nav-text">网格计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E7%AD%89%E7%BD%91%E7%BB%9C%EF%BC%88P2P%EF%BC%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">对等网络（P2P）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97"><span class="nav-number">1.3.3.</span> <span class="nav-text">云计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%92%8C%E4%BA%91%E8%AE%A1%E7%AE%97%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83"><span class="nav-number">1.4.</span> <span class="nav-text">分布式系统和云计算软件环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.4.1.</span> <span class="nav-text">分布式操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%B2%E6%9C%89%E5%B9%B6%E8%A1%8C%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.2.</span> <span class="nav-text">已有并行和分布式编程模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%EF%BC%88SOA%EF%BC%89"><span class="nav-number">1.4.3.</span> <span class="nav-text">面向服务的体系结构（SOA）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E5%92%8C%E4%BA%91%E8%AE%A1%E7%AE%97%E7%9A%84%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7"><span class="nav-number">1.4.4.</span> <span class="nav-text">分布式和云计算的可扩展性:</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
