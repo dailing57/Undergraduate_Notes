@@ -277,7 +277,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-27 10:01:46" itemprop="dateModified" datetime="2021-09-27T10:01:46+08:00">2021-09-27</time>
+                <time title="修改时间：2021-10-05 16:18:47" itemprop="dateModified" datetime="2021-10-05T16:18:47+08:00">2021-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -300,87 +300,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="自顶向下语法分析"><a href="#自顶向下语法分析" class="headerlink" title="自顶向下语法分析"></a>自顶向下语法分析</h1><h2 id="First集合"><a href="#First集合" class="headerlink" title="First集合"></a>First集合</h2><p>为得到唯一的推导过程，条件为：</p>
-<p><strong>左部相同的产生式，其“右部的首符号集合”不相交。</strong></p>
-<p>定义：设$G=(V_T,V_N,S,P)$是上下文无关文法，$FIRST(\alpha)={a|\alpha \implies a\beta,a\in V_T,\alpha,\beta\in V^*}$，若$α \implies ε$，则规定$ε∈FIRST(α)$</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/48v5bd"><img src="https://z3.ax1x.com/2021/09/20/48v5bd.png" alt="48v5bd.png"></a></p>
-<h2 id="Follow集合"><a href="#Follow集合" class="headerlink" title="Follow集合"></a>Follow集合</h2><p>1.文法中包含空产生式。</p>
-<p>2.为得到唯一的推导过程，条件为：</p>
-<p><strong>当某一个$V_N$的产生式含空产生式，则它的非空产生式的First集合两两互不相交，且与推导过程中紧跟该$V_N$可能出现的$V_T$的集合也不相交</strong></p>
-<p>定义：设$G = (V_T,V_N,S,P)$是上下文无关文法，$A\in V_N,S$是开始符号。</p>
-<p>$FOLLOW(A)={a|S\implies \mu A\beta 且 a∈FIRST(\beta), \mu∈{V_T}^*,\beta∈V^+}$</p>
-<p>若$\beta \implies $ε，规定$\in FOLLOW(A)$</p>
-<h2 id="Select集合"><a href="#Select集合" class="headerlink" title="Select集合"></a>Select集合</h2><p>若$ A→α ,  A→β$   其中$A∈V_N , α, β ∈{V_N}^*$，α不能推导出空，β能推导出空，</p>
-<p>则 $FIRST(α)∩( (FIRST(β)-{ε}) ∪FOLLOW(A) )=Φ$</p>
-<p>定义：</p>
-<p>给定上下文无关文法的产生式$A \rightarrow \alpha,A \in V_N, \alpha \in V^*$</p>
-<p>若$\alpha$ 不可推出 $ε$，则$SELECT(A→α)= First(α)$</p>
-<p>若$\alpha$ 可推出 $ε$，则$SELECT(A→α)= (First(α)-{ε})∪Follow(A)$</p>
-<h2 id="LL-1-文法"><a href="#LL-1-文法" class="headerlink" title="LL(1)文法"></a>LL(1)文法</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4GC28I"><img src="https://z3.ax1x.com/2021/09/20/4GC28I.png" alt="4GC28I.png"></a></p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4GC4r8"><img src="https://z3.ax1x.com/2021/09/20/4GC4r8.png" alt="4GC4r8.png"></a></p>
-<h2 id="LL-1-文法判别"><a href="#LL-1-文法判别" class="headerlink" title="LL(1)文法判别"></a>LL(1)文法判别</h2><p>判别步骤：</p>
-<h3 id="1-求出能推出ε的非终结符"><a href="#1-求出能推出ε的非终结符" class="headerlink" title="1. 求出能推出ε的非终结符"></a>1. 求出能推出ε的非终结符</h3><h3 id="2-计算FIRST集"><a href="#2-计算FIRST集" class="headerlink" title="2.计算FIRST集"></a>2.计算FIRST集</h3><ol>
-<li><p>若$x\in V_T$，则$first(x)={x}$</p>
-</li>
-<li><p>若$x\in V_N,x\rightarrow a…,a\in V_T$，则$a\in first(x)$</p>
-</li>
-<li><p>若$x\in V_N,x \rightarrow \epsilon$，则$\epsilon \in first(x)$</p>
-</li>
-<li><p>若$x\in V_N$，且有产生式$x \rightarrow Y_1Y_2…Y_n$，其中，$Y_1,Y_2,…Y_n\in V_N$</p>
-<p>当$Y_1,Y_2,…Y_{i-1}$都能推导出$\epsilon$时，</p>
-<p>则 $first(Y_1)-{\epsilon}\in first(x)$，一直到$i-1$，$first(Y_i)\in first(x)$</p>
-<p>当$Y_1,Y_2,…Y_n$都可以推出$\epsilon$时，</p>
-<p>则 $first(x) = first(Y_1)-{\epsilon} \cup…\cup first(Y_n)-{\epsilon}\cup {\epsilon}$</p>
-</li>
-</ol>
-<h3 id="3-计算FOLLOW集"><a href="#3-计算FOLLOW集" class="headerlink" title="3.计算FOLLOW集"></a>3.计算FOLLOW集</h3><ol>
-<li>设S为开始符号，把#加入Follow(S)中（#为句子括号）</li>
-<li>若$A \rightarrow \alpha B \beta$，则把$First(\beta)-{\epsilon}$加入$Follow(B)$，如果$\beta \implies \epsilon$，则把$Follow(A)$加入$Follow(B)$</li>
-<li>反复2，直到每个$V_N$的$Follow$不再增大</li>
-</ol>
-<h3 id="4-计算SELECT集"><a href="#4-计算SELECT集" class="headerlink" title="4.计算SELECT集"></a>4.计算SELECT集</h3><p>给定上下文无关文法的产生式$A \rightarrow \alpha,A \in V_N, \alpha \in V^*$</p>
-<ol>
-<li><p>若$\alpha$ 不可推出 $ε$，则$SELECT(A→α)= First(α)$</p>
-</li>
-<li><p>若$\alpha$ 可推出 $ε$，则$SELECT(A→α)= (First(α)-{ε})∪Follow(A)$</p>
-</li>
-</ol>
-<h3 id="5-判别是否是LL-1-文法"><a href="#5-判别是否是LL-1-文法" class="headerlink" title="5.判别是否是LL(1)文法"></a>5.判别是否是LL(1)文法</h3><p>左部相同的产生式的SELECT集的交集均为空。 </p>
-<h2 id="确定的自顶向下分析方法"><a href="#确定的自顶向下分析方法" class="headerlink" title="确定的自顶向下分析方法"></a>确定的自顶向下分析方法</h2><h3 id="非LL-1-到LL-1"><a href="#非LL-1-到LL-1" class="headerlink" title="非LL(1)到LL(1)"></a>非LL(1)到LL(1)</h3><p>提取左公因子</p>
-<p>消除左递归</p>
-<h3 id="递归子程序法"><a href="#递归子程序法" class="headerlink" title="递归子程序法"></a>递归子程序法</h3><p>对文法中每个非终结符编写一个递归过程，每个过程的功能是识别由该非终结符推出的串，当某非终结符的产生式有多个候选时能够按LL(1)形式可唯一地确定选择某个候选进行推导。</p>
-<h3 id="预测分析法"><a href="#预测分析法" class="headerlink" title="预测分析法"></a>预测分析法</h3><p>（1）提取左公共因子，消除左递归</p>
-<p>（2）判断文法是否为LL(1)文法</p>
-<p>（3）若是，构造预测分析表；</p>
-<p>​    否则，不能进行“确定的自顶向下”分析</p>
-<p>（4）预测分析程序根据“预测分析表”并利用“分析栈”，对输入串进行分析</p>
-<h1 id="自底向上优先分析法"><a href="#自底向上优先分析法" class="headerlink" title="自底向上优先分析法"></a>自底向上优先分析法</h1><p>自底向上分析方法，也称<strong>移进-归约</strong>分析法。</p>
-<p>实现思想：<br>对输入符号串自左向右进行扫描，并将输入符逐个移入一个后进先出栈中，边移入边分析，一旦栈顶符号串形成某个句型的句柄或可归约串时，就用该产生式的左部非终结符代替相应右部的文法符号串，这称为归约。<br>重复这一过程，直到栈中只剩文法的开始符号时，则分析成功，也就确认输入串是文法的句子。</p>
-<p>自底向上分析的策略：移进-归约分析。<br><strong>移进就是将一个终结符推进符号栈</strong><br><strong>归约就是将0个或多个符号从栈中弹出，根据产生式将一个非终结符压入符号栈</strong><br>移进-归约过程是规范推导（最右推导）的逆过程，所以它是规范归约。<br>何时移进？何时归约？<br>自底向上分析的关键：在分析过程中如何确定“句柄”。即：确定何时可以归约栈顶的符号串。</p>
-<h2 id="简单优先分析法"><a href="#简单优先分析法" class="headerlink" title="简单优先分析法"></a>简单优先分析法</h2><p>先按照一定原则，求出文法所有符号（VT和VN）之间的优先关系；再按照优先关系确定归约过程中的句柄。</p>
-<h3 id="优先关系"><a href="#优先关系" class="headerlink" title="优先关系"></a>优先关系</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4gut8x"><img src="https://z3.ax1x.com/2021/09/27/4gut8x.png" alt="4gut8x.png"></a></p>
-<p>1.拓广文法 S’ $\rightarrow$ #S#</p>
-<p>2.构造优先关系表</p>
-<p>3.判断是否为简单优先文法</p>
-<p>4.根据优先关系表分析句子</p>
-<p><strong>满足以下条件的文法是简单优先文法</strong><br>（1）在文法符号集V中，任意两个符号之间最多只有一种优先关系。<br>（2）在文法中，任意两个产生式没有相同的右部。<br>（3）不含空产生式。</p>
-<p>构造相应优先关系矩阵，并将文法的产生式保存，设置符号栈S，算法步骤如下：</p>
-<p>1.将输入符号串a1a2a3…an# 依次逐个存入符号栈S中，直到遇到栈顶符号$a_i$下一个待输入符号$a_j$时为止。</p>
-<p>2.栈顶当前符号$a_i$为句柄尾，由此向左在栈中找句柄的头符号$a_k$，即找到$a_{k-1}&lt;a_k$为止。</p>
-<p>3.找到句柄$a_k…a_i$，在文法的产生式中查找右部为$a_k…a_i$的产生式，若找到则用相应左部代替句柄，若找不到则为出错，这时可断定输入串不是该文法的句子。</p>
-<p>4.重复上述三步，直到归约完所有输入符号串为止。 （此时栈中只剩文法的开始符号）</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4gMhNj"><img src="https://z3.ax1x.com/2021/09/27/4gMhNj.png" alt="4gMhNj.png"></a></p>
-<h2 id="算符优先分析"><a href="#算符优先分析" class="headerlink" title="算符优先分析"></a>算符优先分析</h2><p>主要思想：<br>对文法按照一定规则，求出VT之间的优先关系；再按照这种优先关系来确定可归约串。<br>实现步骤：<br>拓广文法 S’ $\rightarrow$ #S#<br>构造算符优先关系表<br>判断是否为算符优先文法（OPG文法）<br>根据优先关系表分析句子</p>
-<h3 id="优先关系-1"><a href="#优先关系-1" class="headerlink" title="优先关系"></a>优先关系</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4g8Rte"><img src="https://z3.ax1x.com/2021/09/27/4g8Rte.png" alt="4g8Rte.png"></a></p>
-<h3 id="优先关系表的构造"><a href="#优先关系表的构造" class="headerlink" title="优先关系表的构造"></a>优先关系表的构造</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4gGUDP"><img src="https://z3.ax1x.com/2021/09/27/4gGUDP.png" alt="4gGUDP.png"></a></p>
-<h3 id="算符优先文法的定义"><a href="#算符优先文法的定义" class="headerlink" title="算符优先文法的定义"></a>算符优先文法的定义</h3><p>–不含空产生式</p>
-<p>–任何产生式右部不包含两个相邻的非终结符</p>
-<p>–任何两个终结符之间优先关系唯一</p>
-<p>归约过程中，只考虑终结符之间的优先关系来确定句柄，而与非终结符无关。这样去掉了单个非终结符的归约，所以用算符优先分析法的规约过程不是规范归约。<br>为解决在算符优先分析过程中如何寻找句柄，引进最左素短语的概念</p>
-<p><strong>素短语</strong></p>
-<p> 设有文法G[S]，其句型的素短语是一个短语，它至少包含一个终结符，且除自身外不再包含其他素短语。</p>
-<p>最左素短语：句型最左边的素短语。</p>
-
+          <h1 id="自顶向下语法分析"><a href="#自顶向下语法分析" class="headerlink" title="自顶向下语法分析"></a>自顶向下语法分析</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
