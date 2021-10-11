@@ -28,7 +28,7 @@
 <meta property="og:description" content="用例与用例图">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-10-11T02:29:49.000Z">
-<meta property="article:modified_time" content="2021-10-11T03:51:37.444Z">
+<meta property="article:modified_time" content="2021-10-11T09:38:16.525Z">
 <meta property="article:author" content="Dai Ling">
 <meta property="article:tag" content="软件建模">
 <meta name="twitter:card" content="summary">
@@ -191,7 +191,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-10-11 10:29:49 / 修改时间：11:51:37" itemprop="dateCreated datePublished" datetime="2021-10-11T10:29:49+08:00">2021-10-11</time>
+              <time title="创建时间：2021-10-11 10:29:49 / 修改时间：17:38:16" itemprop="dateCreated datePublished" datetime="2021-10-11T10:29:49+08:00">2021-10-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,7 +227,29 @@
 <h2 id="语境"><a href="#语境" class="headerlink" title="语境"></a>语境</h2><p>所有存在于系统外部，并与系统交互的事物。</p>
 <h2 id="泛化"><a href="#泛化" class="headerlink" title="泛化"></a>泛化</h2><p>一个子用例(sub use case)和一个超用例(super use case)间的关系;<br>子用例是其超用例的一种特殊形式；<br>子用例继承超用例中所有的特征和关联，并可增加新的特征和关联。<br>子用例的一次执行要求其超用例的一次执行。</p>
 <h1 id="类与接口"><a href="#类与接口" class="headerlink" title="类与接口"></a>类与接口</h1><p>每个类元都需要一个<strong>名字</strong>。<br><strong>名词或名词短语</strong>，作为类或接口的名称。<br>类和接口的名字由字符、数字、其它符号组成的字符串，而且<strong>首字符大写</strong>。<br><strong>同一个包中类的名字具有唯一性。</strong></p>
+<h2 id="类元"><a href="#类元" class="headerlink" title="类元"></a>类元</h2><p>类、接口、用例、参与者等元素的泛称。</p>
+<p>每个类元都需要一个名字。</p>
+<p>一个类元中可说明一组<strong>特征</strong>。每个特征都要确定是否是<strong>静态</strong>static的。<br><strong>静态特征是属于类元自身的特征</strong>，模型中用下划线表示<br>非静态特征是类元的实例各自持有的特征(缺省)</p>
+<p>特征可分为<br>结构特征, <strong>性质属于结构特征</strong><br>行为特征, <strong>操作属于行为特征</strong></p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><p>对类中每个对象所包含的某一种<strong>数据或状态的抽象</strong>。</p>
+<p><strong>一个对象在特定时刻在每个属性上都有确定值</strong>。</p>
+<p>语义：表示类的特征的名词或名词短语。<br>语法：可仅表示属性名，也可详细描述：类型、缺省值等。<br>属性名[：类型[ = 缺省值]]<br>一般首字符小写，后面其它词首字符大写。</p>
 <p>readOnly 表示只读，不可改。<br>union表示该性质是多个子集合的一个派生的并集。<br>subsets &lt;性质名&gt; 该性质的值是指定某性质的值的一个子集。<br>redefines &lt;性质名&gt; 该性质是继承而来的某个指定性质的重定义。<br>ordered 表示该性质的多个值是有序的。<br>unique 表示该性质的多个值不重复。<br><prop-constraint> 用一个表达式来约束该属性的值。</p>
+<h3 id="性质类型"><a href="#性质类型" class="headerlink" title="性质类型"></a>性质类型</h3><p>构造类型<br><strong>枚举类型</strong>也可作为性质的类型。枚举Enumeration是一种数据类型，包含一组枚举字面值。枚举的一个实例就是其枚举字面值中的任意一个。</p>
+<h2 id="对象图"><a href="#对象图" class="headerlink" title="对象图"></a>对象图</h2><p>表示实例及实例间的<strong>链</strong>link<br>一个<strong>对象图</strong>是相关类图在<strong>特定运行时刻的一个“快照”</strong>snapshot<br>对象图中所描述的对象特征应符合相关类的特征，以及类之间的关系。<br>对于复杂对象的建模，往往始于对象图，<strong>多个对象图的抽象可得到类图。</strong></p>
+<h3 id="实例规范"><a href="#实例规范" class="headerlink" title="实例规范"></a>实例规范</h3><p>一个实例规范表示一个实体的全部或部分<strong>特征</strong>，包括：<br>实体所属的类元classifiers；<br>实体的种类取决于其所属类元，例如<strong>类的实例是对象</strong>，而<strong>关联的实例是连接link</strong><br>实体结构特征的值的规范；</p>
+<h3 id="值规范"><a href="#值规范" class="headerlink" title="值规范"></a>值规范</h3><p>一个<strong>值规范</strong>(value specification)是关于<strong>一组实例的规范</strong>，可以是<strong>对象</strong>，也可以是<strong>数据值</strong>，用于标识模型中的一个值或一组值。<strong>一个值规范可能只引用一个实例</strong>，也可能用一个表达式来表示或计算多个实例。所以<strong>一个值规范将产生零个或多个值</strong>，这些值的类型和个数应符合语境要求。<br>值规范有四种具体形式：<strong>字面规范、实例值</strong>、表达式、隐性表达式。 </p>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><p>业务对象描述<br>实例场景描述 </p>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><p>操作(operation)：该类对象可被请求而提供的一项服务。</p>
+<p>调用操作可改变对象<strong>自身</strong>的数据或状态，或可访问对象内部的数据或状态。</p>
+<p>语义：表示类的特征的动词或动词短语。<br>语法：操作名及形参，首字符小写，后面其它词的首字符大写。抽象的操作用斜体字表示。<br>同一个类中每个操作具有<strong>唯一基调</strong>(signature)：<strong>操作名</strong>及<strong>形参</strong></p>
+<p><strong>一个类中的一组操作表示对本类的性质的计算。</strong></p>
+<p>操作用来实现用例。<strong>每个用例都应对应有至少一个操作来实现</strong>。还需要添加更多操作。</p>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>接口interface：<br><strong>类class的一种构造型stereotype;</strong><br>一组外部可见的操作的一个命名集合;<br>由一组类、构件或子系统提供实现。<br>接口描述<strong>行为规范</strong>，但不描述行为如何实现。<br>由一组类提供接口的实现。<br>类可实现接口，根据<strong>操作的基调</strong>，提供具体的实现方法method。<br>接口不能直接实例化创建对象。<br>一个接口的实例是实现该接口的类的实例。<br>一般首字母大写，建议用“I”开头。<br>语法：圆圈，或方框(与类相似，仅描述各操作)。</p>
+<p><strong>供口provide interface：一个类所实现的接口</strong><br><strong>需口required interface：一个类需使用的接口</strong></p>
+<p>一个接口与其他类元之间可能存在关联，这意味着该接口的实现类元与其他类元之间存在关联。两个接口之间的关联隐含着这两个接口的实现类元之间存在关联。 </p>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><p>约束(Constraint)表示条件或限制，可用自然语言或形式化语言描述，对建模元素的某些语义进行限定。一个约束包含一个值规范，以规范一个或多个建模元素的附加语义。<br>约束有两类：UML预定义和用户定义。<br>模型中表示约束：<br>可以是自由文本或OCL(Object Constraint Language)表示<br>注解note方式<br>语法：花括号，{约束}</p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>注释(comment)是连接到一组模型元素的一个文本字符串，对元素添加说明，以增强理解。注释中的内容对建模元素没有语义上的强制性，但对建模人员或其他人员可提供很多有用的信息。<br>注释一般采用注解框表示，即右上角带折角的一个矩形文本框，再用虚线连接到被注释的元素上。<br>直接连接到一个模型元素的一个文本字符串，也可以是任何可读文档，如源程序。</p>
 
     </div>
 
@@ -308,7 +330,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E4%B8%8E%E7%94%A8%E4%BE%8B%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">用例与用例图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B"><span class="nav-number">1.1.</span> <span class="nav-text">用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E4%B8%8E%E8%80%85"><span class="nav-number">1.2.</span> <span class="nav-text">参与者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E5%9B%BE"><span class="nav-number">1.3.</span> <span class="nav-text">用例图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E5%A2%83"><span class="nav-number">1.4.</span> <span class="nav-text">语境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%8C%96"><span class="nav-number">1.5.</span> <span class="nav-text">泛化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.</span> <span class="nav-text">类与接口</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E4%B8%8E%E7%94%A8%E4%BE%8B%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">用例与用例图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B"><span class="nav-number">1.1.</span> <span class="nav-text">用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E4%B8%8E%E8%80%85"><span class="nav-number">1.2.</span> <span class="nav-text">参与者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E5%9B%BE"><span class="nav-number">1.3.</span> <span class="nav-text">用例图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E5%A2%83"><span class="nav-number">1.4.</span> <span class="nav-text">语境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%8C%96"><span class="nav-number">1.5.</span> <span class="nav-text">泛化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.</span> <span class="nav-text">类与接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%85%83"><span class="nav-number">2.1.</span> <span class="nav-text">类元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">2.2.</span> <span class="nav-text">性质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.1.</span> <span class="nav-text">性质类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%9B%BE"><span class="nav-number">2.3.</span> <span class="nav-text">对象图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E8%A7%84%E8%8C%83"><span class="nav-number">2.3.1.</span> <span class="nav-text">实例规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%80%BC%E8%A7%84%E8%8C%83"><span class="nav-number">2.3.2.</span> <span class="nav-text">值规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E9%80%94"><span class="nav-number">2.3.3.</span> <span class="nav-text">用途</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">2.4.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.5.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A6%E6%9D%9F"><span class="nav-number">2.6.</span> <span class="nav-text">约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">2.7.</span> <span class="nav-text">注释</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
