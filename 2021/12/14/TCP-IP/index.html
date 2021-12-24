@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="ICMP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP&#x2F;IP">
+<meta property="og:url" content="http://example.com/2021/12/14/TCP-IP/index.html">
+<meta property="og:site_name" content="DL&#39;s Blog">
+<meta property="og:description" content="ICMP">
+<meta property="og:locale">
+<meta property="og:image" content="https://s4.ax1x.com/2021/12/24/TY8wRK.png">
+<meta property="og:image" content="https://s4.ax1x.com/2021/12/24/TtdMOP.png">
+<meta property="og:image" content="https://s4.ax1x.com/2021/12/24/TtyEu9.png">
+<meta property="og:image" content="https://s4.ax1x.com/2021/12/24/TNuau9.png">
+<meta property="og:image" content="https://s4.ax1x.com/2021/12/24/TNrlh8.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/06/23/RmWi8S.png">
+<meta property="og:image" content="https://s4.ax1x.com/2021/12/24/TNfsg0.png">
+<meta property="article:published_time" content="2021-12-14T13:02:18.000Z">
+<meta property="article:modified_time" content="2021-12-24T15:40:59.527Z">
+<meta property="article:author" content="Dai Ling">
+<meta property="article:tag" content="TCP&#x2F;IP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s4.ax1x.com/2021/12/24/TY8wRK.png">
+
+<link rel="canonical" href="http://example.com/2021/12/14/TCP-IP/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>TCP/IP | DL's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">DL's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Welcome to DL's Blog!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">20</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/14/TCP-IP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://z3.ax1x.com/2021/05/06/glJAZd.png">
+      <meta itemprop="name" content="Dai Ling">
+      <meta itemprop="description" content="记录碎片">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DL's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TCP/IP
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-14 21:02:18" itemprop="dateCreated datePublished" datetime="2021-12-14T21:02:18+08:00">2021-12-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-24 23:40:59" itemprop="dateModified" datetime="2021-12-24T23:40:59+08:00">2021-12-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">课程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h1><span id="more"></span>
+
+<p>是IP的补充，用于IP传输时的差错报告、拥塞控制、路径控制以及时间、掩码等信息的获取。 </p>
+<h2 id="差错报告"><a href="#差错报告" class="headerlink" title="差错报告"></a>差错报告</h2><p>丢弃出错的IP数据报</p>
+<p>向信源机报告差错，不纠错，纠错留给高层协议</p>
+<p>报文的数据区包含出错数据报的首部及其前64比特的数据，帮助信源机确定出错分组</p>
+<p>报文作为一般数据传输</p>
+<h3 id="信宿不可达"><a href="#信宿不可达" class="headerlink" title="信宿不可达"></a>信宿不可达</h3><p>当路由器无法转发数据报，或信宿机无法向上层提交数据时，丢弃当前的IP数据报，并向信源发送ICMP信宿不可达报告。</p>
+<ol>
+<li>网络不可达 0</li>
+<li>主机不可达 1</li>
+<li>协议不可达 2</li>
+<li>端口不可达 3</li>
+</ol>
+<h3 id="数据报超时"><a href="#数据报超时" class="headerlink" title="数据报超时"></a>数据报超时</h3><p>TTL超时：TTL减为0</p>
+<p>分片重组超时：信宿机分片重组时会启动定时器</p>
+<h3 id="数据报参数错"><a href="#数据报参数错" class="headerlink" title="数据报参数错"></a>数据报参数错</h3><p>路由器或信宿机发现IP首部的字段值有问题或空缺，就丢弃该数据报，并向信源发送ICMP数据报参数错报告。</p>
+<h2 id="控制报文"><a href="#控制报文" class="headerlink" title="控制报文"></a>控制报文</h2><h3 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h3><p>源抑制控制报文</p>
+<p>为什么要源抑制：<strong>IP时无连接的，中间路由不会预留缓冲区。</strong>当大量IP数据报进入路由器或信宿机时，可以能会造成其缓冲区溢出，出现拥塞。</p>
+<h4 id="源抑制步骤"><a href="#源抑制步骤" class="headerlink" title="源抑制步骤"></a>源抑制步骤</h4><p>发现拥塞：路由器或者信宿机如果因为<strong>缓冲区溢出</strong>而丢弃数据报，立即向丢弃数据报的信源发送ICMP源抑制报文</p>
+<p>解决拥塞：信源机按一定的规则，<strong>降低去往相应信宿的数据报速率</strong>，直到不再收到更多的源抑制报文为止</p>
+<p>恢复：如果信源机在<strong>一段时间没有收到相应源抑制报文</strong>，则认为此方向拥塞已解除，则<strong>逐渐恢复</strong>去往相应信宿的数据报发送速率。</p>
+<h3 id="路径控制"><a href="#路径控制" class="headerlink" title="路径控制"></a>路径控制</h3><p>重定向报文：用于主机路由表的更新，实现路径控制。</p>
+<p>路由器和主机都有路由表(可使用route print或netstat –r 命令查看) 。路由器的初始路由表只含直接相连网络或管理员设置的路由表；主机的初始路由表只包含默认网关。</p>
+<p><strong>路由表用ICMP重定向报文进行更新</strong></p>
+<h2 id="请求应答"><a href="#请求应答" class="headerlink" title="请求应答"></a>请求应答</h2><h3 id="回应请求与应答报文"><a href="#回应请求与应答报文" class="headerlink" title="回应请求与应答报文"></a>回应请求与应答报文</h3><p>作用：用来测试设备的网络可达性，以及设备IP协议是否正常工作。<br>ping命令：基于ICMP回应请求与应答报文。 </p>
+<h3 id="时间戳请求与应答报文"><a href="#时间戳请求与应答报文" class="headerlink" title="时间戳请求与应答报文"></a>时间戳请求与应答报文</h3><p>作用：网络设备的存在时钟差异，而一些分布式应用要求各设备的时钟是同步的。此类报文可实现设备的时钟同步。<br>基本思路：设备通过此类报文，获取信息往返另一设备的时间戳信息，从而估算出设备间时钟差异，并进行相应调整。</p>
+<h3 id="地址掩码请求与应答报文"><a href="#地址掩码请求与应答报文" class="headerlink" title="地址掩码请求与应答报文"></a>地址掩码请求与应答报文</h3><p>作用：获取设备所在网络的掩码。<br>应用：无盘机通过RARP获得IP地址后，可向所在网络的路由器发送ICMP地址掩码请求报文，获得所在网络掩码。</p>
+<h3 id="路由器请求与通告报文"><a href="#路由器请求与通告报文" class="headerlink" title="路由器请求与通告报文"></a>路由器请求与通告报文</h3><p>作用：获取所在网络的默认路由器的IP地址。<br>实现过程：<strong>主机引导时会广播或组播路由器请求报文，所在网络的路由器收到后返回通告报文</strong>，通告本网络所有路由器地址和优先级，主机选择优先级高的作为其默认路由器。</p>
+<h1 id="IP路由"><a href="#IP路由" class="headerlink" title="IP路由"></a>IP路由</h1><p>直接传递：在信宿网络中，直接传到信宿</p>
+<p>间接传递：在非信宿网络中的传递过程</p>
+<h2 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h2><p>信宿地址一般采用信宿网络地址</p>
+<p><strong>网络远少于主机</strong>，减小路由表<br>与网络拓扑结构相对应。网络拓扑中，只有路由器和网络，没有主机<br>主机的增减不会对路由表产生影响<br>减小使用和维护的开销，简化设备的设计和实现</p>
+<h3 id="路由表字段"><a href="#路由表字段" class="headerlink" title="路由表字段"></a>路由表字段</h3><p>信宿地址：一般为信宿网络地址。特殊情况：特定主机路由表项中为信宿主机地址;在默认路由表项中为0.0.0.0</p>
+<p>子网掩码：一般为信宿网络的掩码。在特定主机路由表项中为255.255.255.255; 默认路由表项中为0.0.0.0。</p>
+<p>下一跳地址：间接交付：下一个路由器的入口地址;直接交付：<br>本路由器在信宿网络的出口地址</p>
+<p>输出接口：指明数据报在本设备输出的接口。</p>
+<p>度量：本设备到信宿机的距离，一般为跨越的路由器的个数，路由器到直连网络的跳数为1。</p>
+<h3 id="路由表表项"><a href="#路由表表项" class="headerlink" title="路由表表项"></a>路由表表项</h3><h4 id="普通路由表项"><a href="#普通路由表项" class="headerlink" title="普通路由表项"></a>普通路由表项</h4><p>信宿网络地址 + 信宿网络的掩码</p>
+<h4 id="特定主机路由表项"><a href="#特定主机路由表项" class="headerlink" title="特定主机路由表项"></a>特定主机路由表项</h4><p>信宿主机地址 + 255.255.255.255<br>作用：为特定主机指定路由，用于网络测试或安全等</p>
+<h4 id="默认路由表项"><a href="#默认路由表项" class="headerlink" title="默认路由表项"></a>默认路由表项</h4><p>信宿地址0.0.0.0 + 掩码0.0.0.0<br>一般位于路由表的最后<br>作用：<strong>为剩余目的网络指定路由</strong>，可减小路由表，隐藏网络细节</p>
+<p>表项的顺序：直接交付表项 &gt; 特定主机路由表项 &gt; 普通路由表项 &gt; 默认路由表项</p>
+<h2 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h2><p>路由器之间周期性地交互路由信息，根据最短路径优先原则，计算并更新各自的路由表。<br>最短路径优先原则特点：只考虑路径长度，不考虑拥塞和负载等，不保证所选路径是最优的。计算简单，可以简化路由协议的设计和实现。</p>
+<h3 id="VD-vector-distance"><a href="#VD-vector-distance" class="headerlink" title="VD vector-distance"></a>VD vector-distance</h3><p><strong>路由表更新策略</strong></p>
+<p>假设A收到B的路由表</p>
+<p>对于目的网络N，A的下一跳是B，则按照B中的N更新</p>
+<p>新项目直接加进来</p>
+<p>下一跳不是B，并且距离更短</p>
+<p>缺点：</p>
+<p>收敛慢</p>
+<h3 id="LS-link-status"><a href="#LS-link-status" class="headerlink" title="LS link status"></a>LS link status</h3><p>收敛速度较快：链路状态信息的发布是面向所有路由器，每个路由器都能够迅速获知变化。<br>信息交换量较小：<strong>只发布自己与相邻路由器的链路状态信息</strong>；此后只在网络变化时，发布变化部分。<br>扩展能力强：可采用分层的结构。</p>
+<p>缺点：</p>
+<p>路由器计算量大</p>
+<h3 id="路由信息协议RIP"><a href="#路由信息协议RIP" class="headerlink" title="路由信息协议RIP"></a>路由信息协议RIP</h3><p>路由环路：</p>
+<p>由于V-D算法收敛慢，可能由于信息不一致导致路由环路。因此，RIP规定：有效路径的跳数不能超过15，跳数为16为无效路径。</p>
+<p>相同距离路径问题<br>若去往某一信宿存在多条距离相同的路径，先入为主</p>
+<h4 id="失效路径"><a href="#失效路径" class="headerlink" title="失效路径"></a>失效路径</h4><p>如果在6个周期(3分钟)内，没有收到与某一表项相关的V-D信息，就将该表项的度量值设置成16，并标注为删除。等过一段时间，该路径失效信息传播开去后，才真正删除该表项。</p>
+<h4 id="计数到无穷"><a href="#计数到无穷" class="headerlink" title="计数到无穷"></a>计数到无穷</h4><p>慢收敛的极端情况</p>
+<p>水平分割法：</p>
+<p>如果路由器从某个接口收到某些网络的VD信息，不允许再从此接口发出这些网络的信息。</p>
+<p>毒性逆转法：</p>
+<p>从I接口收到VD信息，这个接口发送此网络的VD信息跳数设置为16（水平分割法的变形）</p>
+<p>保持法：</p>
+<p>在直连网络不可达的一段时间之内，禁止用收到的VD报文刷新此不可达信息</p>
+<h2 id="RIP报文及封装"><a href="#RIP报文及封装" class="headerlink" title="RIP报文及封装"></a>RIP报文及封装</h2><p>帧首部 IP首部 UDP首部 RIP报文 帧尾部</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/TY8wRK"><img src="https://s4.ax1x.com/2021/12/24/TY8wRK.png" alt="TY8wRK.png"></a></p>
+<p>v2改进：</p>
+<p>支持子网，支持可变长子网掩码和无类别域间路由CIDR<br>提供报文鉴别机制，采用口令方式<br>采用组播来发送路由通告，组播地址224.0.0.9对应所有RIP v2路由器</p>
+<h2 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h2><p>每个区域至少有一个区域边界路由器<strong>ABR</strong>用于汇总本区域的路径信息</p>
+<p>OSPF采用链路-状态算法，每个路由器测试自己与其相邻路由器的链路状态信息，<strong>发现变化后在区域内以泛洪方式广播变化信息。</strong><br><strong>每个路由器(包括ABR)收到区域内路由器的信息后，可得知区域的网络结构</strong>，计算最新最短路径优先树，并进行相应路由表更新。而区域之间的路由信息则通过ABR进行交互。</p>
+<p>采用<strong>层次结构</strong>，支持扩展，易于管理。<br><strong>支持特定</strong>主机、特定子网、分类网络、无类网络的路由。<br>不同的区域可以使用不同的报文鉴别方法。<br><strong>采用组播</strong>，减少不相关设备的负担。</p>
+<h2 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h2><p>自治系统边界路由器(ASBR)通过内部网关协议(例如RIP或OSPF)收集自治系统内部的路由信息，然后与其他自治系统的ASBR通过BGP交换信息（信宿，下一跳和去往信宿的路径）。<br>相邻的ASBR收到后，计算并刷新自己的路由表。</p>
+<p><strong>BGP的路由不是最短路径优先</strong>，而是基于管理员配置的路由策略，通常与政治、经济或安全等有关。<br><strong>BGP协议位于应用层</strong>，使用TCP作为传输层协议。两个ASBR路由器在交换路由信息前，必须先建立一条TCP连接。TCP协议将在下一章介绍。</p>
+<h1 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h1><p>三元组标识一个进程：</p>
+<p>主机地址，传输层协议，端口号</p>
+<p>网络通信是使用相同传输层协议的两个进程的通信。</p>
+<p>五元组标识一个网络通信:</p>
+<p>传输层协议, 本地主机地址, 本地进程端口号, 远方主机地址, 远方进程端口号</p>
+<p><strong>进程通信常采用客户机/服务器(C/S)方式</strong>：</p>
+<p>熟知端口：</p>
+<p>由服务器进程使用，有公认用途的端口，包含TCP和UDP的0-1023端口：<br>            SMTP服务器进程：TCP 25端口<br>            DHCP服务器进程：UDP 67端口<br>            FTP服务器的控制进程：TCP 21端口<br>            FTP服务器的数据进程：TCP 20端口 </p>
+<p>临时端口：由客户进程使用，通信前向操作系统申请，通信后归还，包含TCP和UDP的1024~65535端口。</p>
+<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p><strong>传输控制协议TCP</strong> (Transmission Control Protocol)：面向连接的传输层协议<br>特点：基于无连接、<strong>不可靠的IP</strong>，采取了一系列措施，例如建立和拆除逻辑连接，<strong>流量控制、拥塞控制、差错控制</strong>等，向应用层提供面向连接的、可靠的<strong>字节流传输</strong>服务。</p>
+<h2 id="TCP段的格式"><a href="#TCP段的格式" class="headerlink" title="TCP段的格式"></a>TCP段的格式</h2><p>将应用层要传输的字节流分块，封装成若干个TCP段:<br>段首部：<strong>固定首部（20个字节） + 选项（0到40字节之间，且必须为4字节的整数倍）</strong><br>数据：<strong>2字节的整数倍</strong></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/TtdMOP"><img src="https://s4.ax1x.com/2021/12/24/TtdMOP.png" alt="TtdMOP.png"></a></p>
+<p><strong>TCP总长度=IP中数据报总长度字段-首部长度*4</strong></p>
+<p><strong>求校验和</strong>：首先，把伪首部、TCP报头、TCP数据分为16位的字，如果总长度为奇数个字节，则在最后增添一个位都为0的字节。把TCP报头中的校验和字段置为0</p>
+<p>其次，用反码相加法累加所有的16位字（进位也要累加）。<br>最后，对计算结果取反，作为TCP的校验和。</p>
+<h2 id="序号"><a href="#序号" class="headerlink" title="序号"></a>序号</h2><p>TCP连接中传送的数据流中的每一个字节都编上一个序号。<br>序号字段的值则指的是本报文段所发送的数据的第一个字节的序号。<br>如：流序号为=X，数据长度=L<br>则：报文的序号为X，下一个    报文序号为X+L<br>特点<br>报文的顺序关系<br>数据流的位置，更便于流的复原<br>较大的序号空间（32bits，4Gbyte）<br>报文的序号不连续</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/TtyEu9"><img src="https://s4.ax1x.com/2021/12/24/TtyEu9.png" alt="TtyEu9.png"></a></p>
+<h2 id="TCP选项"><a href="#TCP选项" class="headerlink" title="TCP选项"></a>TCP选项</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/TNuau9"><img src="https://s4.ax1x.com/2021/12/24/TNuau9.png" alt="TNuau9.png"></a></p>
+<p>结束选项：作为整个TCP选项的结束。</p>
+<p>最大段大小(MSS)选项：4字节。内容字段告诉对方，本机所在网络能够接受的最大TCP段数据区的字节数。如以太网的MSS可达1460字节，默认为536字节。</p>
+<p>固定首部中的窗口字段最多只能表示65535个字节的空闲接收缓存大小。本选项用来扩大其表示，扩展后的空闲缓存大小为：<br>                                  Wn = Wo×2f<br>    Wo为窗口字段的值，f为窗口规模因子。</p>
+<p>连接的建立需要请求和响应，但是基于不可靠IP，可能丢失。<br><strong>TCP：使用超时重传来解决IP不可靠问题。</strong><br>重传导致重复连接问题。<br><strong>TCP：根据TCP段的序号来查重。</strong><br>为了可靠建立连接，TCP设计了三次握手方式。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/TNrlh8"><img src="https://s4.ax1x.com/2021/12/24/TNrlh8.png" alt="TNrlh8.png"></a></p>
+<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p>SYN seq = x</p>
+<p>ACK SYN seq = y ack = x+1</p>
+<p>ACK seq = x+1 ack = y+1</p>
+<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><p>-&gt;FIN ACK seq = u ack = v</p>
+<p>&lt;-ACK seq = v ack = u+1</p>
+<p>&lt;-FIN ACK seq = w ack = u+1</p>
+<p>-&gt;ACK = 1 seq = u+1 ack = w+1</p>
+<h2 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h2><p>控制发送方发送数据的速率，使得接收方来得及接收和处理。</p>
+<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h2><p>拥塞：网络中传输的数据过多，造成路由器缓存溢出导致数据丢失。数据丢失引起超时重传，进一步加剧网络拥塞。</p>
+<p>TCP拥塞控制：也是控制发送方的发送速率，使得网络来得及传输。 </p>
+<p>TCP流量控制：发送方的发送窗口（swnd）不能大于接收方的接收窗口（rwnd）</p>
+<p>拥塞窗口(cwnd)：表示当前网络的转发能力，由发送方根据网络状况动态设置。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/RmWi8S"><img src="https://z3.ax1x.com/2021/06/23/RmWi8S.png" alt="RmWi8S.png"></a></p>
+<h2 id="TCP差错控制"><a href="#TCP差错控制" class="headerlink" title="TCP差错控制"></a>TCP差错控制</h2><p><strong>段丢失</strong>。检测：发送方使用重传计时器。处理：超时重传。确认段的丢失不需处理，因为TCP采用累计确认。<br><strong>段损坏</strong>。检测：接收方使用校验和字段。处理：丢弃出错的段，不返回确认段，由发送方超时重传。<br><strong>段重复</strong>。一般由超时重传造成的。检测：接收方分析段序号。处理：直接丢弃重复段。<br><strong>段失序。</strong>由于TCP基于IP，不能保证按序到达。处理：接收方对先到达的段暂不确认，放入接收缓存，直到前面的段都到齐了再一起向上提交并返回确认。</p>
+<p>重传计时器<br>发送方发送每个段时，启用重传计时器，如在超时时间内未收到对方确认，则重传。<br>超时值：最常用的：<br>$$<br>Timeout = 2\cross RTT<br>$$</p>
+<p>$$<br>RTT=\alpha \cross RTT_0+(1-\alpha)\cross RTT_1<br>$$</p>
+<p>其中RTT0为之前计算的RTT值，RTT1为最新计算的RTT值，系数α通常为0.9。<br>RTT0和RTT1的计算：</p>
+<ol>
+<li>通过TCP段的时间戳选项；</li>
+<li>通过计时器。</li>
+</ol>
+<h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/TNfsg0"><img src="https://s4.ax1x.com/2021/12/24/TNfsg0.png" alt="TNfsg0.png"></a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TCP-IP/" rel="tag"># TCP/IP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/15/%E9%93%9C%E7%89%8C%E9%A2%98%E7%BB%83%E4%B9%A0/" rel="prev" title="铜牌题练习">
+      <i class="fa fa-chevron-left"></i> 铜牌题练习
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ICMP"><span class="nav-number">1.</span> <span class="nav-text">ICMP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%AE%E9%94%99%E6%8A%A5%E5%91%8A"><span class="nav-number">1.1.</span> <span class="nav-text">差错报告</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E5%AE%BF%E4%B8%8D%E5%8F%AF%E8%BE%BE"><span class="nav-number">1.1.1.</span> <span class="nav-text">信宿不可达</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%B6%85%E6%97%B6"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据报超时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%8F%82%E6%95%B0%E9%94%99"><span class="nav-number">1.1.3.</span> <span class="nav-text">数据报参数错</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%8A%A5%E6%96%87"><span class="nav-number">1.2.</span> <span class="nav-text">控制报文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="nav-number">1.2.1.</span> <span class="nav-text">拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BA%90%E6%8A%91%E5%88%B6%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">源抑制步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E6%8E%A7%E5%88%B6"><span class="nav-number">1.2.2.</span> <span class="nav-text">路径控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%BA%94%E7%AD%94"><span class="nav-number">1.3.</span> <span class="nav-text">请求应答</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E5%BA%94%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%BA%94%E7%AD%94%E6%8A%A5%E6%96%87"><span class="nav-number">1.3.1.</span> <span class="nav-text">回应请求与应答报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E6%88%B3%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%BA%94%E7%AD%94%E6%8A%A5%E6%96%87"><span class="nav-number">1.3.2.</span> <span class="nav-text">时间戳请求与应答报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E6%8E%A9%E7%A0%81%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%BA%94%E7%AD%94%E6%8A%A5%E6%96%87"><span class="nav-number">1.3.3.</span> <span class="nav-text">地址掩码请求与应答报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E8%AF%B7%E6%B1%82%E4%B8%8E%E9%80%9A%E5%91%8A%E6%8A%A5%E6%96%87"><span class="nav-number">1.3.4.</span> <span class="nav-text">路由器请求与通告报文</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IP%E8%B7%AF%E7%94%B1"><span class="nav-number">2.</span> <span class="nav-text">IP路由</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="nav-number">2.1.</span> <span class="nav-text">路由表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8%E5%AD%97%E6%AE%B5"><span class="nav-number">2.1.1.</span> <span class="nav-text">路由表字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8%E8%A1%A8%E9%A1%B9"><span class="nav-number">2.1.2.</span> <span class="nav-text">路由表表项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E8%B7%AF%E7%94%B1%E8%A1%A8%E9%A1%B9"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">普通路由表项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E5%AE%9A%E4%B8%BB%E6%9C%BA%E8%B7%AF%E7%94%B1%E8%A1%A8%E9%A1%B9"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">特定主机路由表项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E8%B7%AF%E7%94%B1%E8%A1%A8%E9%A1%B9"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">默认路由表项</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="nav-number">2.2.</span> <span class="nav-text">动态路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VD-vector-distance"><span class="nav-number">2.2.1.</span> <span class="nav-text">VD vector-distance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LS-link-status"><span class="nav-number">2.2.2.</span> <span class="nav-text">LS link status</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF%E5%8D%8F%E8%AE%AERIP"><span class="nav-number">2.2.3.</span> <span class="nav-text">路由信息协议RIP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%B1%E6%95%88%E8%B7%AF%E5%BE%84"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">失效路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E6%95%B0%E5%88%B0%E6%97%A0%E7%A9%B7"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">计数到无穷</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RIP%E6%8A%A5%E6%96%87%E5%8F%8A%E5%B0%81%E8%A3%85"><span class="nav-number">2.3.</span> <span class="nav-text">RIP报文及封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF"><span class="nav-number">2.4.</span> <span class="nav-text">OSPF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BGP"><span class="nav-number">2.5.</span> <span class="nav-text">BGP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="nav-number">3.</span> <span class="nav-text">传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP"><span class="nav-number">3.1.</span> <span class="nav-text">TCP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E6%AE%B5%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">TCP段的格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F%E5%8F%B7"><span class="nav-number">3.3.</span> <span class="nav-text">序号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E9%80%89%E9%A1%B9"><span class="nav-number">3.4.</span> <span class="nav-text">TCP选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="nav-number">3.5.</span> <span class="nav-text">三次握手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="nav-number">3.6.</span> <span class="nav-text">四次挥手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="nav-number">3.7.</span> <span class="nav-text">TCP流量控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="nav-number">3.8.</span> <span class="nav-text">TCP拥塞控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP%E5%B7%AE%E9%94%99%E6%8E%A7%E5%88%B6"><span class="nav-number">3.9.</span> <span class="nav-text">TCP差错控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP"><span class="nav-number">3.10.</span> <span class="nav-text">UDP</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Ling"
+      src="https://z3.ax1x.com/2021/05/06/glJAZd.png">
+  <p class="site-author-name" itemprop="name">Dai Ling</p>
+  <div class="site-description" itemprop="description">记录碎片</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dai Ling</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
