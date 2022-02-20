@@ -123,17 +123,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">25</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">26</span></a>
 
   </li>
   </ul>
@@ -194,7 +194,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-17 10:08:06" itemprop="dateModified" datetime="2022-02-17T10:08:06+08:00">2022-02-17</time>
+                <time title="修改时间：2022-02-20 14:52:19" itemprop="dateModified" datetime="2022-02-20T14:52:19+08:00">2022-02-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,7 +250,109 @@
 
 <h3 id="Too-Many-Impostors-easy-version"><a href="#Too-Many-Impostors-easy-version" class="headerlink" title="Too Many Impostors (easy version)"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1617/D1">Too Many Impostors (easy version)</a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, a, b) for (ll i = (a); i &lt;= (b); i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dec(i, a, b) for (ll i = (a); i &gt;= (b); i--)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pll pair<span class="meta-string">&lt;ll, ll&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">ll INF = <span class="number">0x7f7f7f7f7f7f7f7f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line">ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">ask</span><span class="params">(ll a, ll b, ll c)</span> </span>&#123;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;? &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; b &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; c &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout.<span class="built_in">flush</span>();</span><br><span class="line">  ll x;</span><br><span class="line">  cin &gt;&gt; x;</span><br><span class="line">  <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ll T;</span><br><span class="line">  cin &gt;&gt; T;</span><br><span class="line">  <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">    ll n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;ll&gt; <span class="title">a</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">bool</span>&gt; <span class="title">res</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="built_in">rep</span>(i, <span class="number">1</span>, n) &#123; a[i] = <span class="built_in">ask</span>(i, i % n + <span class="number">1</span>, (i + <span class="number">1</span>) % n + <span class="number">1</span>); &#125;</span><br><span class="line">    ll u, v;</span><br><span class="line">    <span class="built_in">rep</span>(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">      <span class="keyword">if</span> (a[i] != a[i % n + <span class="number">1</span>]) &#123;</span><br><span class="line">        res[i] = a[i];</span><br><span class="line">        res[(i + <span class="number">2</span>) % n + <span class="number">1</span>] = !res[i];</span><br><span class="line">        u = i, v = (i + <span class="number">2</span>) % n + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll k = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">rep</span>(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i != v &amp;&amp; i != u) &#123;</span><br><span class="line">        res[i] = <span class="built_in">ask</span>(u, v, i);</span><br><span class="line">        <span class="keyword">if</span> (!res[i]) k++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;! &quot;</span> &lt;&lt; k &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="built_in">rep</span>(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!res[i]) cout &lt;&lt; i &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="Moderate-Modular-Mode"><a href="#Moderate-Modular-Mode" class="headerlink" title="Moderate Modular Mode"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1603/B">Moderate Modular Mode</a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, a, b) for (ll i = (a); i &lt;= (b); i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dec(i, a, b) for (ll i = (a); i &gt;= (b); i--)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pll pair<span class="meta-string">&lt;ll, ll&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">ll INF = <span class="number">0x7f7f7f7f7f7f7f7f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line">ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">  cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">  ll T;</span><br><span class="line">  cin &gt;&gt; T;</span><br><span class="line">  <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">    ll x, y;</span><br><span class="line">    cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    <span class="keyword">if</span> (x &gt; y) &#123;</span><br><span class="line">      cout &lt;&lt; x + y &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x == y) &#123;</span><br><span class="line">      cout &lt;&lt; x &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      cout &lt;&lt; y - y % x / <span class="number">2</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="Omkar-and-the-Meaning-of-Life"><a href="#Omkar-and-the-Meaning-of-Life" class="headerlink" title="Omkar and the Meaning of Life"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1583/D">Omkar and the Meaning of Life</a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, a, b) for (ll i = (a); i &lt;= (b); i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dec(i, a, b) for (ll i = (a); i &gt;= (b); i--)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pll pair<span class="meta-string">&lt;ll, ll&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">ll INF = <span class="number">0x7f7f7f7f7f7f7f7f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line">ll mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">ll n;</span><br><span class="line"><span class="function">ll <span class="title">ask1</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;? &quot;</span>;</span><br><span class="line">  <span class="built_in">rep</span>(i, <span class="number">1</span>, n) &#123; cout &lt;&lt; <span class="number">1</span> + (i == x) &lt;&lt; <span class="string">&#x27; &#x27;</span>; &#125;</span><br><span class="line">  cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout.<span class="built_in">flush</span>();</span><br><span class="line">  ll t;</span><br><span class="line">  cin &gt;&gt; t;</span><br><span class="line">  <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">ask2</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;? &quot;</span>;</span><br><span class="line">  <span class="built_in">rep</span>(i, <span class="number">1</span>, n) &#123; cout &lt;&lt; <span class="number">2</span> - (i == x) &lt;&lt; <span class="string">&#x27; &#x27;</span>; &#125;</span><br><span class="line">  cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  cout.<span class="built_in">flush</span>();</span><br><span class="line">  ll t;</span><br><span class="line">  cin &gt;&gt; t;</span><br><span class="line">  <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ll a[N], ans[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">  cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">  cin &gt;&gt; n;</span><br><span class="line">  ll pos = <span class="number">-1</span>;</span><br><span class="line">  <span class="built_in">rep</span>(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">    ll k = <span class="built_in">ask1</span>(i);</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">0</span>) ans[i] = n, pos = i;</span><br><span class="line">    <span class="keyword">if</span> (k &amp;&amp; i != k) a[k] = i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">rep</span>(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">    ll k = <span class="built_in">ask2</span>(i);</span><br><span class="line">    <span class="keyword">if</span> (k &amp;&amp; i != k) a[i] = k;</span><br><span class="line">  &#125;</span><br><span class="line">  ll t = n;</span><br><span class="line">  <span class="keyword">while</span> (t) &#123;</span><br><span class="line">    ans[pos] = t;</span><br><span class="line">    pos = a[pos];</span><br><span class="line">    t--;</span><br><span class="line">  &#125;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;! &quot;</span>;</span><br><span class="line">  <span class="built_in">rep</span>(i, <span class="number">1</span>, n) cout &lt;&lt; ans[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sweepstake"><a href="#Sweepstake" class="headerlink" title="Sweepstake"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1571/D">Sweepstake</a></h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> (n,m) = readLine()!!.split(<span class="string">&#x27; &#x27;</span>).map&#123; it.toInt()&#125;</span><br><span class="line">    <span class="keyword">val</span> cp = Array(n+<span class="number">1</span>) &#123;IntArray(n+<span class="number">1</span>)&#123;<span class="number">0</span>&#125; &#125;</span><br><span class="line">    <span class="keyword">val</span> cl = IntArray(n+<span class="number">1</span>)&#123;<span class="number">0</span>&#125;</span><br><span class="line">    <span class="keyword">val</span> cr = IntArray(n+<span class="number">1</span>)&#123;<span class="number">0</span>&#125;</span><br><span class="line">    <span class="keyword">val</span> fi = readLine()!!.split(<span class="string">&#x27; &#x27;</span>).map&#123;it.toInt()&#125;</span><br><span class="line">    <span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">2.</span>.m)&#123;</span><br><span class="line">        <span class="keyword">val</span> (l,r) = readLine()!!.split(<span class="string">&#x27; &#x27;</span>).map &#123; it.toInt() &#125;</span><br><span class="line">        cp[l][r]++</span><br><span class="line">        cl[l]++</span><br><span class="line">        cr[r]++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">I</span><span class="params">(x: <span class="type">Boolean</span>)</span></span> = <span class="keyword">if</span>(x) <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(l <span class="keyword">in</span> <span class="number">1.</span>.n)&#123;</span><br><span class="line">        <span class="keyword">for</span>(r <span class="keyword">in</span> <span class="number">1.</span>.n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l == r) <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">val</span> s = I(l == fi[<span class="number">0</span>]) + I(r==fi[<span class="number">1</span>])</span><br><span class="line">            <span class="keyword">var</span> tmp = <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span>(s&lt;<span class="number">2</span>)</span><br><span class="line">                tmp += cp[l][r]</span><br><span class="line">            <span class="keyword">if</span>(s&lt;<span class="number">1</span>)</span><br><span class="line">                tmp += cl[l] + cr[r] - <span class="number">2</span>*cp[l][r]</span><br><span class="line">            ans = maxOf(ans,tmp)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    println(ans)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/20/kotlin-practice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s4.ax1x.com/2022/01/21/72Iby8.jpg">
+      <meta itemprop="name" content="DeaL">
+      <meta itemprop="description" content="我说的每一句话，都是错的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DL's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/20/kotlin-practice/" class="post-title-link" itemprop="url">kotlin practice</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-02-20 14:48:43 / 修改时间：14:51:28" itemprop="dateCreated datePublished" datetime="2022-02-20T14:48:43+08:00">2022-02-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/02/20/kotlin-practice/" class="post-meta-item leancloud_visitors" data-flag-title="kotlin practice" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/02/20/kotlin-practice/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/20/kotlin-practice/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>kotlin的一些练习</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/20/kotlin-practice/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1075,108 +1177,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/15/%E9%93%9C%E7%89%8C%E9%A2%98%E7%BB%83%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://s4.ax1x.com/2022/01/21/72Iby8.jpg">
-      <meta itemprop="name" content="DeaL">
-      <meta itemprop="description" content="我说的每一句话，都是错的">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DL's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/15/%E9%93%9C%E7%89%8C%E9%A2%98%E7%BB%83%E4%B9%A0/" class="post-title-link" itemprop="url">铜牌题练习</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-15 17:17:59" itemprop="dateCreated datePublished" datetime="2021-10-15T17:17:59+08:00">2021-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-21 21:50:24" itemprop="dateModified" datetime="2021-10-21T21:50:24+08:00">2021-10-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/10/15/%E9%93%9C%E7%89%8C%E9%A2%98%E7%BB%83%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="铜牌题练习" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/10/15/%E9%93%9C%E7%89%8C%E9%A2%98%E7%BB%83%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/15/%E9%93%9C%E7%89%8C%E9%A2%98%E7%BB%83%E4%B9%A0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="题目集1"><a href="#题目集1" class="headerlink" title="题目集1"></a>题目集1</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/15/%E9%93%9C%E7%89%8C%E9%A2%98%E7%BB%83%E4%B9%A0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1248,20 +1248,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
