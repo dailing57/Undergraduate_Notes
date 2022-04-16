@@ -209,6 +209,12 @@
 <h3 id="国家集训队happiness"><a href="#国家集训队happiness" class="headerlink" title="国家集训队happiness"></a><a href="https://www.luogu.com.cn/problem/P1646">国家集训队happiness</a></h3><p>凡是这种二选一带约束的统统转化为这种模型：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">	s((s)) --&gt; a((a))</span><br><span class="line">	s((s)) --&gt; x((x))</span><br><span class="line">	s((s)) --&gt; b((b))</span><br><span class="line">	x((x)) --&gt; a((a))</span><br><span class="line">	x((x)) --&gt; b((b))</span><br><span class="line">	a((a)) --&gt; y((y))</span><br><span class="line">	b((b)) --&gt; y((y))</span><br><span class="line">	y((y)) --&gt; t((t))</span><br><span class="line">	a((a)) --&gt; t((t))</span><br><span class="line">	b((b)) --&gt; t((t))</span><br></pre></td></tr></table></figure>
 
+
+
+<h3 id="80人环游世界"><a href="#80人环游世界" class="headerlink" title="80人环游世界"></a><a href="https://www.luogu.com.cn/problem/P4553">80人环游世界</a></h3><p>由源点向每一个入点连一条权值为 $v_i$ ，费用为 0 的边，表示这个国家进入了 个$v_i$人。</p>
+<p>由每一个出点向汇点连一条权值为$v_i$，费用为 0 的边，表示这个国家到达了 $v_i$个人。</p>
+<p>由新点向每一个入点连一条权值为$\infty$ 或$m$均可，费用为 0 的边，表示所有人可以从任意国家出发。</p>
+<p>对于每个有航线的两点，由编号小的入点连向编号大的出点$\infty$，权值为 或 m 均可，费用为航线价钱。</p>
 ]]></content>
       <categories>
         <category>ACM</category>
