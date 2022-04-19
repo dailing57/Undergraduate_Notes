@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。这样，你就能一次又一次地使用该方案而不必做重复劳动。 设计模式的目的可复用性，灵活性，可扩展性，可移植性 策略模式定义算法族：让它们之间可以互相替换，让算法的变化独立于算法的客户 行为是通过和适当的行为“组合而来“ （设计原则在选择题里面） 设计原则： 把会变化的部分取出来并“封装”起来，好让其他部分不会受到影响。 结果">
+  <meta name="description" content="每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。这样，你就能一次又一次地使用该方案而不必做重复劳动。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式">
 <meta property="og:url" content="http://example.com/2022/04/18/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="DL&#39;s Blog">
-<meta property="og:description" content="每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。这样，你就能一次又一次地使用该方案而不必做重复劳动。 设计模式的目的可复用性，灵活性，可扩展性，可移植性 策略模式定义算法族：让它们之间可以互相替换，让算法的变化独立于算法的客户 行为是通过和适当的行为“组合而来“ （设计原则在选择题里面） 设计原则： 把会变化的部分取出来并“封装”起来，好让其他部分不会受到影响。 结果">
+<meta property="og:description" content="每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。这样，你就能一次又一次地使用该方案而不必做重复劳动。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-04-18T08:15:11.000Z">
-<meta property="article:modified_time" content="2022-04-18T09:39:42.845Z">
+<meta property="article:modified_time" content="2022-04-19T01:12:49.964Z">
 <meta property="article:author" content="DeaL">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
@@ -126,7 +126,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">23</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">24</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -136,7 +136,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">32</span></a>
 
   </li>
   </ul>
@@ -189,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-04-18 16:15:11 / 修改时间：17:39:42" itemprop="dateCreated datePublished" datetime="2022-04-18T16:15:11+08:00">2022-04-18</time>
+              <time title="创建时间：2022-04-18 16:15:11" itemprop="dateCreated datePublished" datetime="2022-04-18T16:15:11+08:00">2022-04-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-19 09:12:49" itemprop="dateModified" datetime="2022-04-19T09:12:49+08:00">2022-04-19</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -236,6 +242,8 @@
 
       
         <p>每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。这样，你就能一次又一次地使用该方案而不必做重复劳动。</p>
+<span id="more"></span>
+
 <h1 id="设计模式的目的"><a href="#设计模式的目的" class="headerlink" title="设计模式的目的"></a>设计模式的目的</h1><p><strong>可复用性，灵活性，可扩展性，可移植性</strong></p>
 <h1 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h1><p>定义算法族：让它们之间可以互相替换，让算法的变化独立于算法的客户</p>
 <p>行为是通过和适当的行为“组合而来“</p>
@@ -302,7 +310,10 @@
     <a href="/2022/04/04/%E4%B8%B2%E4%B8%B2/" rel="prev" title="串串">
       <i class="fa fa-chevron-left"></i> 串串
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="next" title="操作系统">
+      操作系统 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -378,7 +389,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -391,7 +402,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
