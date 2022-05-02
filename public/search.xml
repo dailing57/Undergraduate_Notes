@@ -3906,25 +3906,25 @@
 <ol>
 <li>单标志</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(turn != 0); 	|		while(turn != 0);</span><br><span class="line">critical;			|		critical;</span><br><span class="line">turn = 1;			|		turn = 1;</span><br><span class="line">remainder;			|		remainder;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">while(turn !&#x3D; 0); 	|		while(turn !&#x3D; 0);</span><br><span class="line">critical;			|		critical;</span><br><span class="line">turn &#x3D; 1;			|		turn &#x3D; 1;</span><br><span class="line">remainder;			|		remainder;</span><br></pre></td></tr></table></figure>
 
 <p>只有两个，而且还必须轮着来，如果一个润了，另一个也搞不了</p>
 <ol start="2">
 <li>双标志法先检查</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(flag[j]);		|		while(flag[i]);</span><br><span class="line">flag[i] = 1;		|		flag[j] = 1;</span><br><span class="line">critical;			|		critical;</span><br><span class="line">flag[i] = 0;		|		flag[j] = 0;</span><br><span class="line">remainder;			|		remainder;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">while(flag[j]);		|		while(flag[i]);</span><br><span class="line">flag[i] &#x3D; 1;		|		flag[j] &#x3D; 1;</span><br><span class="line">critical;			|		critical;</span><br><span class="line">flag[i] &#x3D; 0;		|		flag[j] &#x3D; 0;</span><br><span class="line">remainder;			|		remainder;</span><br></pre></td></tr></table></figure>
 
 <p>有可能会同时进入临界区</p>
 <ol start="3">
 <li>双标志法后检查</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flag[i] = 1;		|		flag[j] = 1;</span><br><span class="line">while(flag[j]);		|		while(flag[i]);</span><br><span class="line">critical;			|		critical;</span><br><span class="line">flag[i] = 0;		|		flag[i] = 0;</span><br><span class="line">remainder;			|		remainder;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flag[i] &#x3D; 1;		|		flag[j] &#x3D; 1;</span><br><span class="line">while(flag[j]);		|		while(flag[i]);</span><br><span class="line">critical;			|		critical;</span><br><span class="line">flag[i] &#x3D; 0;		|		flag[i] &#x3D; 0;</span><br><span class="line">remainder;			|		remainder;</span><br></pre></td></tr></table></figure>
 
 <p>两个都想进入临界区可能导致都进不了</p>
 <ol start="4">
 <li>Peterson’s Algorithm</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">falg[i] = 1;turn = j;			|		falg[j] = 1;turn = i;</span><br><span class="line">while(flag[j] &amp;&amp; turn == j);	|		while(flag[j] &amp;&amp; turn == i);</span><br><span class="line">critical;						|		critical;</span><br><span class="line">flag[i]=0;						|		flag[j]=0;	</span><br><span class="line">remainder;						|		remainder;	</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">falg[i] &#x3D; 1;turn &#x3D; j;			|		falg[j] &#x3D; 1;turn &#x3D; i;</span><br><span class="line">while(flag[j] &amp;&amp; turn &#x3D;&#x3D; j);	|		while(flag[j] &amp;&amp; turn &#x3D;&#x3D; i);</span><br><span class="line">critical;						|		critical;</span><br><span class="line">flag[i]&#x3D;0;						|		flag[j]&#x3D;0;	</span><br><span class="line">remainder;						|		remainder;	</span><br></pre></td></tr></table></figure>
 
 <p>flag实现互斥，turn实现饥饿现象</p>
 <p>只实现了有限等待，没有让权等待</p>
@@ -3935,27 +3935,27 @@
 <p>硬件指令方法：</p>
 <p>TestAndSet：</p>
 <p>原子操作</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bool testAndSet(bool * lock)&#123;</span><br><span class="line">	bool old;</span><br><span class="line">	old = *lock;</span><br><span class="line">	*lock = 1;</span><br><span class="line">	return old;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bool testAndSet(bool * lock)&#123;</span><br><span class="line">	bool old;</span><br><span class="line">	old &#x3D; *lock;</span><br><span class="line">	*lock &#x3D; 1;</span><br><span class="line">	return old;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>为每个临界资源分配要给lock</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while testAndSet(&amp;lock)&#123;</span><br><span class="line">	critical;</span><br><span class="line">	lock = 0;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">while testAndSet(&amp;lock)&#123;</span><br><span class="line">	critical;</span><br><span class="line">	lock &#x3D; 0;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Swap:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">key = 1;</span><br><span class="line">while(key != 0)&#123;</span><br><span class="line">	Swap(&amp;lock,&amp;key);</span><br><span class="line">	creitical;</span><br><span class="line">	lock = 0;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">key &#x3D; 1;</span><br><span class="line">while(key !&#x3D; 0)&#123;</span><br><span class="line">	Swap(&amp;lock,&amp;key);</span><br><span class="line">	creitical;</span><br><span class="line">	lock &#x3D; 0;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>硬件方法不可以实现让权等待（<del>进程：我tm怎么知道可不可以进</del>）</p>
 <h3 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h3><p><strong>整型信号量</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wait(S)&#123;</span><br><span class="line">	while(S&lt;=0);</span><br><span class="line">	S = S - 1;</span><br><span class="line">&#125;</span><br><span class="line">signal(S)&#123;</span><br><span class="line">	S = S + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wait(S)&#123;</span><br><span class="line">	while(S&lt;&#x3D;0);</span><br><span class="line">	S &#x3D; S - 1;</span><br><span class="line">&#125;</span><br><span class="line">signal(S)&#123;</span><br><span class="line">	S &#x3D; S + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>wait操作，只要S&lt;=0，就会不断测试。不遵循让权等待</p>
 <p><strong>记录型信号量</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef struct&#123;</span><br><span class="line">	int value;//资源数目</span><br><span class="line">	struct process *L;//所有等待这个资源的进程链表</span><br><span class="line">&#125;semaphore;</span><br><span class="line">void wait(semaphore S)&#123;</span><br><span class="line">	S.value--;</span><br><span class="line">	if(S.value&lt;0)&#123;// 没有while就没瞎等了</span><br><span class="line">		add this process to S.L;</span><br><span class="line">		bolck S.L;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">void signal(semaphore S)&#123;</span><br><span class="line">	S.value++;</span><br><span class="line">	if(S.value&lt;=0)&#123;</span><br><span class="line">		remove a process P from S.L;</span><br><span class="line">		wakeup(P);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typedef struct&#123;</span><br><span class="line">	int value;&#x2F;&#x2F;资源数目</span><br><span class="line">	struct process *L;&#x2F;&#x2F;所有等待这个资源的进程链表</span><br><span class="line">&#125;semaphore;</span><br><span class="line">void wait(semaphore S)&#123;</span><br><span class="line">	S.value--;</span><br><span class="line">	if(S.value&lt;0)&#123;&#x2F;&#x2F; 没有while就没瞎等了</span><br><span class="line">		add this process to S.L;</span><br><span class="line">		bolck S.L;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">void signal(semaphore S)&#123;</span><br><span class="line">	S.value++;</span><br><span class="line">	if(S.value&lt;&#x3D;0)&#123;</span><br><span class="line">		remove a process P from S.L;</span><br><span class="line">		wakeup(P);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>利用信号量实现同步</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">semaphore S = 0;</span><br><span class="line">P1()&#123;</span><br><span class="line">	...</span><br><span class="line">	V(S);</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">P2()&#123;</span><br><span class="line">	...</span><br><span class="line">	P(S);</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">semaphore S &#x3D; 0;</span><br><span class="line">P1()&#123;</span><br><span class="line">	...</span><br><span class="line">	V(S);</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">P2()&#123;</span><br><span class="line">	...</span><br><span class="line">	P(S);</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>利用信号量实现进程互斥</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">semaphore S = 1;</span><br><span class="line">P1()&#123;</span><br><span class="line">	...</span><br><span class="line">	P(S);</span><br><span class="line">	临界区</span><br><span class="line">	V(S);</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">P2()&#123;</span><br><span class="line">	...</span><br><span class="line">	P(S);</span><br><span class="line">	临界区</span><br><span class="line">	V(S);</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">semaphore S &#x3D; 1;</span><br><span class="line">P1()&#123;</span><br><span class="line">	...</span><br><span class="line">	P(S);</span><br><span class="line">	临界区</span><br><span class="line">	V(S);</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">P2()&#123;</span><br><span class="line">	...</span><br><span class="line">	P(S);</span><br><span class="line">	临界区</span><br><span class="line">	V(S);</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h3><p>帮助实现同步的工具</p>
 <h3 id="经典同步问题"><a href="#经典同步问题" class="headerlink" title="经典同步问题"></a>经典同步问题</h3><p>生产者-消费者，读者-写者，哲学家进餐</p>
@@ -4082,6 +4082,7 @@
 <p>频发发生缺页中断的原因：进程频繁访问的页面数高于可用的物理页</p>
 <h3 id="工作集"><a href="#工作集" class="headerlink" title="工作集"></a>工作集</h3><p>某段时间内进程要访问的页面集合。</p>
 <p>工作集模型原理：操作系统跟踪每个进程的工作集，为进程分配大于其工作集的物理块。落在工作集内部的页面需要调入驻留集，落在工作集外的页面可以从驻留集换出</p>
+<p>好像又活过来了？是的</p>
 ]]></content>
       <categories>
         <category>课程</category>
