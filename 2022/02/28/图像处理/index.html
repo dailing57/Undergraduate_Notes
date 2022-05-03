@@ -20,18 +20,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="图像处理">
+  <meta name="description" content="Digital Image Procession">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图像处理">
 <meta property="og:url" content="http://example.com/2022/02/28/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="DL&#39;s Blog">
-<meta property="og:description" content="图像处理">
+<meta property="og:description" content="Digital Image Procession">
 <meta property="og:locale">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=n">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=Voronoi">
+<meta property="og:image" content="https://s1.ax1x.com/2022/05/03/OFznYQ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/05/03/OkdeMD.png">
 <meta property="article:published_time" content="2022-02-28T09:20:05.000Z">
-<meta property="article:modified_time" content="2022-04-16T03:13:17.327Z">
+<meta property="article:modified_time" content="2022-05-03T10:08:36.860Z">
 <meta property="article:author" content="DeaL">
 <meta property="article:tag" content="图像处理">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.zhihu.com/equation?tex=n">
 
 <link rel="canonical" href="http://example.com/2022/02/28/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
 
@@ -197,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-16 11:13:17" itemprop="dateModified" datetime="2022-04-16T11:13:17+08:00">2022-04-16</time>
+                <time title="修改时间：2022-05-03 18:08:36" itemprop="dateModified" datetime="2022-05-03T18:08:36+08:00">2022-05-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,10 +246,62 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>图像处理</p>
+        <p>Digital Image Procession</p>
 <span id="more"></span>
 
-<p>处理：时域、频域</p>
+<h1 id="Image-Acquisition"><a href="#Image-Acquisition" class="headerlink" title="Image Acquisition"></a>Image Acquisition</h1><p>An image is a projection of a 3D scene into a 2D<br>projection plane.</p>
+<p> An image can be defined as a 2 variable function</p>
+<p>$f(x,y): R^2→R$</p>
+<h2 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h2><p><strong>• Image Intensity</strong><br>– Light <strong>energy</strong> emitted from a unit area in the image<br>– Device dependence<br>**• Image Brightness **<br>– <strong>The subjective appearance</strong> of a unit area in the image<br>– Context dependence<br>– Subjective<br><strong>• Image Gray-Level</strong><br>– The relative intensity at each unit area<br>– Between the lowest intensity (Black value) and the highest<br>intensity (White value)<br>– Device independent</p>
+<h3 id="Weber-Law"><a href="#Weber-Law" class="headerlink" title="Weber Law"></a>Weber Law</h3><p>$Brightness ∝ log(f)$</p>
+<h2 id="Digitization"><a href="#Digitization" class="headerlink" title="Digitization"></a>Digitization</h2><p><strong>Spatial sampling</strong>: Spatial domain</p>
+<p><strong>Quantization</strong>: Gray level</p>
+<p>The density of the sampling denotes the separation capability of the resulting image</p>
+<p><strong>Image resolution</strong> defines the finest details that are still visible by the image</p>
+<h3 id="Nyquist-Frequency"><a href="#Nyquist-Frequency" class="headerlink" title="Nyquist Frequency"></a>Nyquist Frequency</h3><p>Nyquist Rule: To observe details at frequency f (wavelength d) one must sample at frequency &gt; 2f (sampling intervals &lt; d/2)</p>
+<p>The Frequency 2f is the Nyquist Frequency</p>
+<h3 id="Non-uniform-Quantization"><a href="#Non-uniform-Quantization" class="headerlink" title="Non-uniform Quantization"></a>Non-uniform Quantization</h3><p> Quantize according to visual sensitivity (Weber’s Law)</p>
+<h3 id="Optimal-Quantization-Lloyd-Max"><a href="#Optimal-Quantization-Lloyd-Max" class="headerlink" title="Optimal Quantization (Lloyd -Max)"></a>Optimal Quantization (Lloyd -Max)</h3><p>$Llogyds: $</p>
+<blockquote>
+<p>a. 首先随机选择 <img src="https://www.zhihu.com/equation?tex=n" alt="[公式]"> 个站点<br>b. 对其他点进行划分，形成 <img src="https://www.zhihu.com/equation?tex=Voronoi" alt="[公式]"> 单元<br>c. 计算每个单元的质心，更新相应的站点<br>d. 迭代b、c这两个步骤，直至收敛</p>
+</blockquote>
+<h1 id="Image-Histogram"><a href="#Image-Histogram" class="headerlink" title="Image Histogram"></a>Image Histogram</h1><h2 id="Image-Characteristics"><a href="#Image-Characteristics" class="headerlink" title="Image Characteristics"></a>Image Characteristics</h2><h3 id="Image-Contrast"><a href="#Image-Contrast" class="headerlink" title="Image Contrast"></a>Image Contrast</h3><h5 id="Global-Contrast"><a href="#Global-Contrast" class="headerlink" title="Global Contrast"></a>Global Contrast</h5><p>$max{ I ( x, y)} − min{ I ( x, y)}$</p>
+<p>$var{ I ( x, y)} = mean{(I ( x, y) - I_{av})^2}$</p>
+<h5 id="Local-Image-Contrast"><a href="#Local-Image-Contrast" class="headerlink" title="Local Image Contrast"></a>Local Image Contrast</h5><p>$$<br>C = \mid \frac {I_p - I_n} {I_n} \mid<br>$$</p>
+<p>$I_{NEW}(x,y)= α·I(x,y)+ β$</p>
+<h3 id="Image-Statistics"><a href="#Image-Statistics" class="headerlink" title="Image Statistics"></a>Image Statistics</h3><p>$N = \sum_kH(k)$</p>
+<p>$P(k) = H(k)/N$</p>
+<p>$C(k) = \sum^k H(i)$<br>$$<br>E(I) = \frac 1 N \sum_k kH(k) = \sum_kkP(k)<br>$$</p>
+<h3 id="Image-Entropy"><a href="#Image-Entropy" class="headerlink" title="Image Entropy"></a>Image Entropy</h3><p>$$<br>Entropy(I)=-\sum_kP(k)logP(k)<br>$$</p>
+<h2 id="Histogram-Usage"><a href="#Histogram-Usage" class="headerlink" title="Histogram Usage"></a>Histogram Usage</h2><h3 id="KL-Distance"><a href="#KL-Distance" class="headerlink" title="KL Distance"></a>KL Distance</h3><p>$$<br>D_{KL}(A||B) = \sum_kP_A(k)log(\frac{P_A(k)}{P_B(k)})<br>$$</p>
+<p>==Measures the amount of added information needed to encode image A based on the histogram of image B.==</p>
+<p>Suffers from the same drawback of the Minkowski distance.</p>
+<h3 id="The-Earth-Mover-Distance-EMD"><a href="#The-Earth-Mover-Distance-EMD" class="headerlink" title="The Earth Mover Distance (EMD)"></a>The Earth Mover Distance (EMD)</h3><p>$$<br>D_{EMD}(A,B) = min_F(\sum_i \sum_jf_{ij}* d_{ij}) \<br>s.t. \ f_{ij} \ge 0;P_B(k)=\sum_if_{ik});P_A(k)=\sum_if_{ki});<br>$$</p>
+<p>没理解错的话就是最小费用最大流的二分图版本</p>
+<h1 id="Point-Operations"><a href="#Point-Operations" class="headerlink" title="Point Operations"></a>Point Operations</h1><p>$$<br>g(x,y) = \alpha f(x,y) + \beta<br>$$</p>
+<p>$$<br>M ( v ) = αv + β\<br>\alpha = \frac{q’ - p’}{q - p};\beta = p’ - \alpha p<br>$$</p>
+<h2 id="Histogram-Equalization"><a href="#Histogram-Equalization" class="headerlink" title="Histogram Equalization"></a>Histogram Equalization</h2><p>Our goal: finding a gray-level transformation $M(v)$<br>such that:<br>– The histogram $H_b$ is as flat as possible.<br>– The order of gray-levels is maintained.<br>– The histogram bars are not fragmented. </p>
+<p>更平，更宽，更连续</p>
+<p>双指针走一下</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/OFznYQ"><img src="https://s1.ax1x.com/2022/05/03/OFznYQ.png" alt="OFznYQ.png"></a></p>
+<h2 id="Histogram-matching"><a href="#Histogram-matching" class="headerlink" title="Histogram matching"></a>Histogram matching</h2><p>• Transforms an image A so that its histogram will match that of another image B.</p>
+<p>• Usage: before comparing two images of the same scene (change detection) acquired under different lighting conditions or different camera parameters.</p>
+<h1 id="Geometric-Transformation"><a href="#Geometric-Transformation" class="headerlink" title="Geometric Transformation"></a>Geometric Transformation</h1><h2 id="Forward-Mapping"><a href="#Forward-Mapping" class="headerlink" title="Forward Mapping"></a>Forward Mapping</h2><p>Problems with forward mapping due to sampling:</p>
+<p>– Holes (some target pixels are not populated) </p>
+<p>– Overlaps (some target pixels assigned few colors)</p>
+<h2 id="Inverse-Mapping"><a href="#Inverse-Mapping" class="headerlink" title="Inverse Mapping"></a>Inverse Mapping</h2><p>• Each target pixel assigned a single color.<br>• Color Interpolation is required.</p>
+<h2 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h2><p>Interpolation: generates a new pixel by analyzing the surrounding pixels.</p>
+<h3 id="Bilinear-Interpolation"><a href="#Bilinear-Interpolation" class="headerlink" title="Bilinear Interpolation"></a>Bilinear Interpolation</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/OkdeMD"><img src="https://s1.ax1x.com/2022/05/03/OkdeMD.png" alt="OkdeMD.png"></a></p>
+<h1 id="Spatial-Filtering"><a href="#Spatial-Filtering" class="headerlink" title="Spatial Filtering"></a>Spatial Filtering</h1><h2 id="Convolution"><a href="#Convolution" class="headerlink" title="Convolution"></a>Convolution</h2><p>$$<br>I’(u,v) = \sum_{(i,j)\in R_H} I(u-i,v-j)\cdot H(i,j) \<br>I’ = I * H<br>$$</p>
+<h3 id="Linear-Operators"><a href="#Linear-Operators" class="headerlink" title="Linear Operators"></a>Linear Operators</h3><p>$$<br>F(cI) = cF(I) \<br>F(I_1 + I_2) = F(I_1) + F(I_2)<br>$$</p>
+<h3 id="Properties-of-Convolution"><a href="#Properties-of-Convolution" class="headerlink" title="Properties of Convolution"></a>Properties of Convolution</h3><p>$$<br>I<em>H = H</em>I<br>$$</p>
+<p>$$<br>(I ∗ H1) ∗ H2 = I ∗ (H1 ∗ H2)<br>$$</p>
+<p>$$<br>(a · I) ∗ H = a · (I ∗ H) \<br>(I1 + I2) ∗ H = (I1 ∗ H) + (I2 ∗ H)<br>$$</p>
+<p>$$<br>S(I ∗ H) = S(I) ∗ H<br>$$</p>
+<p>The only <strong>shift-invariant</strong>, <strong>linear operators</strong> on images are convolutions</p>
+<p><strong>Gaussian</strong></p>
+<p>1D<br>$$<br>g_{\sigma}(x) = \frac 1 {\sqrt{2 \pi} \sigma}exp(-\frac{x^2}{2\sigma ^ 2})<br>$$<br>2D<br>$$<br>G_{\sigma}(x,y) = \frac 1 {2 \pi \sigma ^ 2}exp(-\frac{x^2 + y^2}{2\sigma ^ 2})<br>$$</p>
+<p>$$<br>G(x,y) = g(x) \cdot g(y)<br>$$</p>
 
     </div>
 
@@ -344,6 +401,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Image-Acquisition"><span class="nav-number">1.</span> <span class="nav-text">Image Acquisition</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Notations"><span class="nav-number">1.1.</span> <span class="nav-text">Notations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Weber-Law"><span class="nav-number">1.1.1.</span> <span class="nav-text">Weber Law</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Digitization"><span class="nav-number">1.2.</span> <span class="nav-text">Digitization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nyquist-Frequency"><span class="nav-number">1.2.1.</span> <span class="nav-text">Nyquist Frequency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-uniform-Quantization"><span class="nav-number">1.2.2.</span> <span class="nav-text">Non-uniform Quantization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimal-Quantization-Lloyd-Max"><span class="nav-number">1.2.3.</span> <span class="nav-text">Optimal Quantization (Lloyd -Max)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Image-Histogram"><span class="nav-number">2.</span> <span class="nav-text">Image Histogram</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Image-Characteristics"><span class="nav-number">2.1.</span> <span class="nav-text">Image Characteristics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Image-Contrast"><span class="nav-number">2.1.1.</span> <span class="nav-text">Image Contrast</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Global-Contrast"><span class="nav-number">2.1.1.0.1.</span> <span class="nav-text">Global Contrast</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Local-Image-Contrast"><span class="nav-number">2.1.1.0.2.</span> <span class="nav-text">Local Image Contrast</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Image-Statistics"><span class="nav-number">2.1.2.</span> <span class="nav-text">Image Statistics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Image-Entropy"><span class="nav-number">2.1.3.</span> <span class="nav-text">Image Entropy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram-Usage"><span class="nav-number">2.2.</span> <span class="nav-text">Histogram Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#KL-Distance"><span class="nav-number">2.2.1.</span> <span class="nav-text">KL Distance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Earth-Mover-Distance-EMD"><span class="nav-number">2.2.2.</span> <span class="nav-text">The Earth Mover Distance (EMD)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Point-Operations"><span class="nav-number">3.</span> <span class="nav-text">Point Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram-Equalization"><span class="nav-number">3.1.</span> <span class="nav-text">Histogram Equalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram-matching"><span class="nav-number">3.2.</span> <span class="nav-text">Histogram matching</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Geometric-Transformation"><span class="nav-number">4.</span> <span class="nav-text">Geometric Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Forward-Mapping"><span class="nav-number">4.1.</span> <span class="nav-text">Forward Mapping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inverse-Mapping"><span class="nav-number">4.2.</span> <span class="nav-text">Inverse Mapping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interpolation"><span class="nav-number">4.3.</span> <span class="nav-text">Interpolation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bilinear-Interpolation"><span class="nav-number">4.3.1.</span> <span class="nav-text">Bilinear Interpolation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spatial-Filtering"><span class="nav-number">5.</span> <span class="nav-text">Spatial Filtering</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Convolution"><span class="nav-number">5.1.</span> <span class="nav-text">Convolution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Operators"><span class="nav-number">5.1.1.</span> <span class="nav-text">Linear Operators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Properties-of-Convolution"><span class="nav-number">5.1.2.</span> <span class="nav-text">Properties of Convolution</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
