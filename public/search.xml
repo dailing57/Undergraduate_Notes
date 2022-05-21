@@ -3740,6 +3740,7 @@
 <p><strong>Gaussian</strong></p>
 <p>1D<br>$$<br>g_{\sigma}(x) = \frac 1 {\sqrt{2 \pi} \sigma}exp(-\frac{x^2}{2\sigma ^ 2})<br>$$<br>2D<br>$$<br>G_{\sigma}(x,y) = \frac 1 {2 \pi \sigma ^ 2}exp(-\frac{x^2 + y^2}{2\sigma ^ 2})<br>$$</p>
 <p>$$<br>G(x,y) = g(x) \cdot g(y)<br>$$</p>
+<h1 id="Edge-Detection"><a href="#Edge-Detection" class="headerlink" title="Edge Detection"></a>Edge Detection</h1><p>$$<br>\nabla f(x,y) = \begin{bmatrix}<br>\frac {\partial f} {\partial x} \<br>\frac {\partial f} {\partial y}<br>\end{bmatrix}<br>$$</p>
 ]]></content>
       <categories>
         <category>课程</category>
