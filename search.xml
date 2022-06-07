@@ -4443,7 +4443,7 @@
     <content><![CDATA[<p>随便写点</p>
 <span id="more"></span>
 
-<p><a href="http://118.190.20.162/view.page?gpid=T125">校门外的树CSP</a><br>$$<br>dp[i] = \sum dp[j] * cnt(j,i)<br>$$<br>朴素筛求1e5每个数字的因子</p>
+<p><a href="http://118.190.20.162/view.page?gpid=T125">校门外的树CSP</a><br>$$<br>dp[i] = \sum dp[j] * cnt(j,i)<br>$$<br>朴素筛求1e5每个数字的因子 </p>
 ]]></content>
       <categories>
         <category>ACM</category>
