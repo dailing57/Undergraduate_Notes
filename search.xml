@@ -4466,4 +4466,32 @@
         <tag>ML</tag>
       </tags>
   </entry>
+  <entry>
+    <title>网络设置MEMO</title>
+    <url>/2022/08/23/%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AEMEMO/</url>
+    <content><![CDATA[<h1 id="trunk"><a href="#trunk" class="headerlink" title="trunk"></a>trunk</h1><p>sw trunk encapsulation dot1q [three layer switch]<br>sw mode trunk</p>
+<h1 id="vlan"><a href="#vlan" class="headerlink" title="vlan"></a>vlan</h1><p>vlan 10(number)<br>ex<br>int f0/1(interface)<br>sw acc vlan 10</p>
+<h1 id="spanning-tree"><a href="#spanning-tree" class="headerlink" title="spanning-tree"></a>spanning-tree</h1><p>spanning-tree mode rapid-pvst (every switch)<br>spanning-tree vlan 10 root primary (root switch)<br>spanning-tree vlan 10 root secondary (secondary switch)</p>
+<h1 id="route-set-ip"><a href="#route-set-ip" class="headerlink" title="route set ip"></a>route set ip</h1><p>int f0/0<br>ip add 192.168.1.0 255.255.255.0</p>
+<h1 id="static-route-set"><a href="#static-route-set" class="headerlink" title="static route set"></a>static route set</h1><p>ip route 192.168.2.0 255.255.255.0 192.168.1.1 (dst network, mask, next hop)<br>static default router<br>ip route 0.0.0.0 0.0.0.0 192.168.1.1 (dst network, mask, next hop)</p>
+<h1 id="rip"><a href="#rip" class="headerlink" title="rip"></a>rip</h1><p>router rip<br>network 192.168.1.0<br>… (declare the connected network)<br>version 2</p>
+<h1 id="ospf"><a href="#ospf" class="headerlink" title="ospf"></a>ospf</h1><p>router ospf 1<br>network 192.168.2.0 0.0.0.255 area 0<br>… (declare the connected network)</p>
+<h1 id="redistribute"><a href="#redistribute" class="headerlink" title="redistribute"></a>redistribute</h1><p>router ospf 1<br>redistribute rip metric 30 metric-type 1</p>
+<p>router rip<br>redistribute ospf 1 metric 3</p>
+<p>enter the protocal first then add the aim distribution<br>default-information originate (no redistribute)<br>redistribute static metric 3</p>
+<h1 id="vlan-ip"><a href="#vlan-ip" class="headerlink" title="vlan ip"></a>vlan ip</h1><p>vlan 10<br>ex<br>interface Vlan10<br>ip address 192.168.1.254 255.255.255.0</p>
+<h1 id="ACL"><a href="#ACL" class="headerlink" title="ACL"></a>ACL</h1><p>access-list 1 permit 192.168.1.0 0.0.0.255 (‘any’ needs to be declared at first)<br>access-list 1 permit 192.168.2.0 0.0.0.255<br>access-list 1 deny 192.168.3.0 0.0.0.255<br>int f0/0<br>ip access-group 1 in(or out) </p>
+<h1 id="ACL-ex"><a href="#ACL-ex" class="headerlink" title="ACL ex"></a>ACL ex</h1><p>access-list 100 deny ip 172.16.2.0 0.0.0.255 172.16.4.0 0.0.0.255<br>access-list 100 deny ip 172.16.1.0 0.0.0.255 172.16.5.0 0.0.0.255<br>access-list 100 permit ip any any</p>
+<h1 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h1><p>int f0/0<br>ip nat inside<br>int s2/0<br>ip nat outside<br>access-list 1 permit 192.168.1.0 0.0.0.255<br>ip nat inside sourde list 1 inter ace s2/0 overload</p>
+<h1 id="DNAT"><a href="#DNAT" class="headerlink" title="DNAT"></a>DNAT</h1><p>ip nat inside source static tcp 192.168.1.2 80 200.20.20.1 80</p>
+<h1 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h1><p>service dhcp [three layer switch]<br>ip dhcp pool pv10(name)<br>network 192.168.1.0 255.255.255.0<br>default-router 192.168.1.253(gate)<br>dns-server 8.8.8.8</p>
+<h1 id="show"><a href="#show" class="headerlink" title="show"></a>show</h1><p>do sh ip route<br>do sh ip int b<br>do sh run</p>
+]]></content>
+      <categories>
+        <category>network</category>
+      </categories>
+      <tags>
+        <tag>network</tag>
+      </tags>
+  </entry>
 </search>
