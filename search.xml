@@ -4469,7 +4469,9 @@
   <entry>
     <title>网络设置MEMO</title>
     <url>/2022/08/23/%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AEMEMO/</url>
-    <content><![CDATA[<h1 id="trunk"><a href="#trunk" class="headerlink" title="trunk"></a>trunk</h1><p>sw trunk encapsulation dot1q [three layer switch]<br>sw mode trunk</p>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="trunk"><a href="#trunk" class="headerlink" title="trunk"></a>trunk</h1><p>sw trunk encapsulation dot1q [three layer switch]<br>sw mode trunk</p>
 <h1 id="vlan"><a href="#vlan" class="headerlink" title="vlan"></a>vlan</h1><p>vlan 10(number)<br>ex<br>int f0/1(interface)<br>sw acc vlan 10</p>
 <h1 id="spanning-tree"><a href="#spanning-tree" class="headerlink" title="spanning-tree"></a>spanning-tree</h1><p>spanning-tree mode rapid-pvst (every switch)<br>spanning-tree vlan 10 root primary (root switch)<br>spanning-tree vlan 10 root secondary (secondary switch)</p>
 <h1 id="route-set-ip"><a href="#route-set-ip" class="headerlink" title="route set ip"></a>route set ip</h1><p>int f0/0<br>ip add 192.168.1.0 255.255.255.0</p>
